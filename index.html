@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Winlucks - Merchant Partnership Program</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="icon" type="image/jpg" href="LW.jpg">
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		body {
+			background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+			color: #333;
+			line-height: 1.6;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		header {
+			background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+			color: white;
+			padding: 60px 20px 40px;
+			text-align: center;
+			border-radius: 15px;
+			margin-bottom: 30px;
+			box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+			position: relative;
+			overflow: hidden;
+		}
+
+		header::before {
+			content: "";
+			position: absolute;
+			top: -50%;
+			left: -50%;
+			width: 200%;
+			height: 200%;
+			background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%);
+			transform: rotate(30deg);
+		}
+
+		.logo-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		.logo {
+			font-size: 4rem;
+			font-weight: bold;
+			color: #fdb614;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+
+		.logo-img {
+			max-width: 300px;
+			height: auto;
+		}
+
+		.tagline {
+			font-size: 1.8rem;
+			margin-bottom: 20px;
+			position: relative;
+			font-weight: 500;
+			color: #fff;
+		}
+
+		.btn {
+			display: inline-block;
+			background: #fdb614;
+			color: white;
+			padding: 15px 30px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: bold;
+			margin-top: 20px;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+			position: relative;
+		}
+
+			.btn2 {
+			display: inline-block;
+			background: #60269e;
+			color: white;
+			padding: 15px 30px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: bold;
+			margin-top: 2px;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+			position: relative;
+		}
+			.btn3 {
+			display: inline-block;
+			background: #58AF41;
+			color: white;
+			padding: 10px 150px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: bold;
+			margin-top: 2px;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+			position: relative;
+		}
+
+		.btn:hover {
+			background: #e6a410;
+			transform: translateY(-3px);
+			box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+		}
+
+		.btn-app {
+			display: inline-flex;
+			align-items: center;
+			background: #000;
+			color: white;
+			padding: 12px 25px;
+			border-radius: 12px;
+			text-decoration: none;
+			font-weight: bold;
+			margin: 10px 5px;
+			transition: all 0.3s ease;
+		}
+
+		.btn-app:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+		}
+
+		.btn-app i {
+			margin-right: 10px;
+			font-size: 1.5rem;
+		}
+
+		.btn-google {
+			background: #4285F4;
+		}
+
+		.btn-apple {
+			background: #000;
+		}
+
+		.app-btn-img {
+			height: 50px;
+			margin: 0 5px;
+		}
+
+		.card {
+			background: white;
+			border-radius: 15px;
+			padding: 30px;
+			margin-bottom: 30px;
+			box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+			border-left: 5px solid #60269e;
+		}
+
+		.card-title {
+			color: #60269e;
+			font-size: 1.8rem;
+			margin-bottom: 20px;
+			padding-bottom: 10px;
+			border-bottom: 2px solid #fdb614;
+			display: flex;
+			align-items: center;
+		}
+
+		.card-title i {
+			margin-right: 10px;
+			color: #fdb614;
+		}
+
+		.comparison {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			margin: 30px 0;
+		}
+
+		.plan {
+			flex: 1;
+			min-width: 300px;
+			background: white;
+			border-radius: 15px;
+			padding: 25px;
+			text-align: center;
+			box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+			transition: transform 0.3s ease;
+			border-top: 5px solid #60269e;
+			position: relative;
+		}
+
+		.plan:hover {
+			transform: translateY(-5px);
+		}
+
+		.plan.popular {
+			border-top: 5px solid #fdb614;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.popular-badge {
+			position: absolute;
+			top: 15px;
+			right: -30px;
+			background: #fdb614;
+			color: white;
+			padding: 5px 30px;
+			transform: rotate(45deg);
+			font-weight: bold;
+			font-size: 0.8rem;
+		}
+
+		.limited-offer {
+			position: absolute;
+			top: 15px;
+			left: -35px;
+			background: linear-gradient(135deg, #ff3366 0%, #ff3366 100%);
+			color: white;
+			padding: 5px 40px;
+			transform: rotate(-45deg);
+			font-weight: bold;
+			font-size: 0.8rem;
+			z-index: 2;
+			box-shadow: 0 4px 10px rgba(255, 51, 102, 0.4);
+		}
+
+		.offer-comparison {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 15px 0;
+			padding: 10px;
+			background: linear-gradient(135deg, #fff6e6 0%, #ffeacc 100%);
+			border-radius: 10px;
+			border: 2px dashed #fdb614;
+		}
+
+		.old-price {
+			text-decoration: line-through;
+			color: #ff3366;
+			font-weight: bold;
+			margin-right: 10px;
+			font-size: 1.2rem;
+		}
+
+		.new-price {
+			color: #28a745;
+			font-weight: bold;
+			font-size: 1.5rem;
+		}
+
+		.offer-tag {
+			display: inline-block;
+			background: #ff3366;
+			color: white;
+			padding: 5px 10px;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			font-weight: bold;
+			margin-left: 10px;
+		}
+
+		.plan-title {
+			font-size: 1.5rem;
+			color: #60269e;
+			margin-bottom: 15px;
+		}
+
+		.plan-price {
+			font-size: 2.5rem;
+			color: #7d3cc4;
+			margin-bottom: 20px;
+		}
+
+		.plan-features {
+			list-style-type: none;
+			margin-bottom: 20px;
+		}
+
+		.plan-features li {
+			padding: 10px 0;
+			border-bottom: 1px solid #eee;
+			display: flex;
+			align-items: center;
+		}
+
+		.plan-features li i {
+			margin-right: 10px;
+			color: #28a745;
+		}
+
+		.plan-features li:last-child {
+			border-bottom: none;
+		}
+
+		.features-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 20px;
+			margin: 30px 0;
+		}
+
+		.feature-card {
+			background: white;
+			border-radius: 15px;
+			padding: 20px;
+			box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+			transition: transform 0.3s ease;
+			border-top: 4px solid #60269e;
+		}
+
+		.feature-card:hover {
+			transform: translateY(-5px);
+		}
+
+		.feature-icon {
+			font-size: 2.5rem;
+			color: #7d3cc4;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+
+		.feature-title {
+			font-size: 1.3rem;
+			color: #60269e;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+
+		.feature-desc {
+			text-align: center;
+		}
+
+		.example {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			margin: 30px 0;
+		}
+
+		.example-card {
+			flex: 1;
+			min-width: 250px;
+			background: white;
+			border-radius: 15px;
+			padding: 20px;
+			text-align: center;
+			box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+			position: relative;
+		}
+
+		.example-percentage {
+			position: absolute;
+			top: -15px;
+			right: -15px;
+			background: #fdb614;
+			color: white;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+			font-size: 1.2rem;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.example-amount {
+			font-size: 2rem;
+			font-weight: bold;
+			color: #60269e;
+			margin: 15px 0;
+		}
+
+		.example-earnings {
+			font-size: 1.8rem;
+			color: #28a745;
+			font-weight: bold;
+		}
+
+		.footer {
+			text-align: center;
+			padding: 30px;
+			margin-top: 50px;
+			background: #60269e;
+			color: white;
+			border-radius: 15px;
+		}
+
+		.contact-info {
+			margin: 20px 0;
+		}
+
+		.support-options {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			justify-content: center;
+			margin: 30px 0;
+		}
+
+		.support-option {
+			background: white;
+			border-radius: 15px;
+			padding: 20px;
+			text-align: center;
+			flex: 1;
+			min-width: 250px;
+			box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+		}
+
+		.support-icon {
+			font-size: 2.5rem;
+			color: #7d3cc4;
+			margin-bottom: 15px;
+		}
+
+		.support-title {
+			font-size: 1.3rem;
+			color: #60269e;
+			margin-bottom: 10px;
+		}
+
+		.support-detail {
+			font-size: 1.1rem;
+			margin: 5px 0;
+		}
+
+		.brand-section {
+			background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+			color: white;
+			padding: 40px;
+			border-radius: 15px;
+			margin: 40px 0;
+			text-align: center;
+		}
+
+		.brand-title {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.brand-title3 {
+			font-size: 1rem;
+			margin-bottom: 10px;
+		}
+
+		.brand-content {
+			max-width: 800px;
+			margin: 0 auto;
+			font-size: 1.1rem;
+			line-height: 1.8;
+		}
+
+
+		.app-download {
+			text-align: center;
+			margin: 40px 0;
+		}
+
+
+		.download-section {
+			background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+			padding: 50px;
+			border-radius: 15px;
+			text-align: center;
+			color: white;
+			margin: 40px 0;
+			box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+		}
+
+		.download-title {
+			font-size: 2.2rem;
+			margin-bottom: 20px;
+		}
+
+		.download-subtitle {
+			font-size: 1.2rem;
+			margin-bottom: 30px;
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.download-graphic {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 30px 0;
+			gap: 20px;
+			flex-wrap: wrap;
+		}
+
+		.graphic-item {
+			background: white;
+			border-radius: 15px;
+			padding: 20px;
+			width: 150px;
+			height: 150px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: #60269e;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+		}
+
+		.graphic-item:hover {
+			transform: translateY(-10px);
+		}
+
+		.graphic-item i {
+			font-size: 3rem;
+			margin-bottom: 15px;
+		}
+
+		.graphic-item span {
+			font-weight: bold;
+		}
+
+		.benefits-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 30px 0;
+			background: white;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+		}
+
+		.benefits-table th,
+		.benefits-table td {
+			padding: 15px;
+			text-align: left;
+			border-bottom: 1px solid #eee;
+		}
+
+		.benefits-table th {
+			background: #60269e;
+			color: white;
+		}
+
+		.benefits-table tr:last-child td {
+			border-bottom: none;
+		}
+
+		.benefits-table tr:hover {
+			background: #f9f7ff;
+		}
+
+		.coin-section {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 30px;
+			margin: 40px 0;
+			flex-wrap: wrap;
+		}
+
+		.coin-image {
+			flex: 1;
+			min-width: 300px;
+			text-align: center;
+		}
+
+		.coin-img {
+			max-width: 100%;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+		}
+
+		.coin-content {
+			flex: 1;
+			min-width: 300px;
+		}
+
+
+		.benefits-list {
+			list-style-type: none;
+			margin: 30px 0;
+		}
+
+		.benefits-list li {
+			padding: 15px;
+			margin-bottom: 10px;
+			background: white;
+			border-radius: 10px;
+			box-shadow: 0 3px 10px rgba(96, 38, 158, 0.1);
+			display: flex;
+			align-items: center;
+			transition: transform 0.3s ease;
+		}
+
+		.benefits-list li:hover {
+			transform: translateX(5px);
+		}
+
+		.benefits-list li i {
+			margin-right: 15px;
+			font-size: 1.5rem;
+			color: #fdb614;
+			background: #60269e;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.percentage-highlight {
+			text-align: center;
+			margin: 30px 0;
+			padding: 20px;
+			background: linear-gradient(135deg, #fdb614 0%, #ffcc40 100%);
+			border-radius: 15px;
+			color: #60269e;
+			font-weight: bold;
+			font-size: 1.5rem;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		@media (max-width: 768px) {
+
+			.comparison,
+			.features-grid,
+			.example,
+			.support-options {
+				flex-direction: column;
+			}
+
+			.plan,
+			.support-option {
+				min-width: 100%;
+			}
+
+			.logo {
+				font-size: 3rem;
+			}
+
+			.logo-img {
+				max-width: 200px;
+			}
+
+
+			.tagline {
+				font-size: 1.2rem;
+			}
+
+			.benefits-table {
+				display: block;
+				overflow-x: auto;
+			}
+
+			.benefits-list li {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.benefits-list li i {
+				margin-right: 0;
+				margin-bottom: 10px;
+			}
+
+			.coin-section {
+				flex-direction: column;
+			}
+
+			.limited-offer {
+				left: -40px;
+				padding: 5px 35px;
+			}
+
+			.app-btn-img {
+				height: 40px;
+			}
+
+
+			.logo-wrapper {
+				width: 300px;
+				height: 150px;
+
+
+				display: flex;
+				/* enable flexbox */
+				justify-content: center;
+				/* horizontal centering */
+				align-items: center;
+				/* vertical centering */
+				margin: 0 auto;
+				/* center wrapper itself if needed */
+			}
+
+			.logo-wrapper .logo-img {
+				width: 100% !important;
+				height: 100% !important;
+				object-fit: contain;
+				display: block;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<!-- <div class="logo-container">
+		               <img src="Logo.png"> 
+		            </div>-->
+			<div class="Logo-wrapper"> <img src="WebLogo.png" alt="Logo" class="logo-img"> </div>
+			<!-- <div class="tagline">Shop, Win, Celebrate!</div> -->
+			<h1 class="brand-title"> Grow Your Business with Winlucks </h1>				
+			<h3 class="brand-title3">Attract more customers with rewards</h3>	
+			<!--<a href="#download" class="btn">Start Today</a>-->
+			<!-- Add this right after the existing button in the header -->
+			<a href="winlucks-small-business.html" class="btn" style="background: #7d3cc4; margin-left: 15px;">
+				<i class="fas fa-store"></i> How Winlucks Helps Small Businesses Grow
+			</a>
+			<a href="BusinessCategories.html" class="btn" style="background: #7d3cc4; margin-left: 15px;">
+				<i class="fas fa-store"></i> View Popular UAE Business Categories
+			</a>
+			<!-- Add this in a suitable location on your main page -->
+
+
+		</header>
+
+
+		<div class="brand-section">
+			<h2 class="brand-title">Our Brand Story</h2>
+			<div class="brand-content">
+				<p>Winlucks combines two powerful symbols - the goldfish representing prosperity, and the trophy
+					representing achievement and victory. This unique combination reflects our mission to bring both
+					prosperity and success to our merchants.</p>
+				<p>Just as an umbrella provides shelter and protection, Winlucks provides a platform for businesses to
+					grow and achieve prosperity in the digital marketplace.</p>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-star"></i> Why Choose Winlucks?</h2>
+			<p>Traditional marketplaces charge 15-25% commission on every sale, making it hard to grow your business.
+				Winlucks offers a smarter way with transparent pricing and the lowest fees in the market.</p>
+
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-percentage"></i></div>
+					<h3 class="feature-title">Only 7% Commission</h3>
+					<p class="feature-desc">Half the cost of other marketplaces</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+					<h3 class="feature-title">Higher Sales</h3>
+					<p class="feature-desc">Customers buy more with rewards</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+					<h3 class="feature-title">Marketing Boost</h3>
+					<p class="feature-desc">Winlucks promotes your store</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-handshake"></i></div>
+					<h3 class="feature-title">Community Trust</h3>
+					<p class="feature-desc">Local marketplace supporting SMEs</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Add this after the "Why Choose Winlucks?" card -->
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-hands-helping"></i> Specifically for Small Businesses</h2>
+			<p>Winlucks is specially designed to help small businesses overcome common challenges and compete
+				effectively in the digital marketplace.</p>
+
+			<div style="text-align: center; margin: 25px 0;">
+				<a href="winlucks-small-business.html" class="btn">
+					<i class="fas fa-arrow-right"></i> See How We Help Small Businesses
+				</a>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-tags"></i> Flexible Plans for Your Business</h2>
+			<p>Choose the plan that works best for your business needs. Whether you're a high-volume seller or just
+				starting out, we have a plan for you.</p>
+
+			<div class="comparison">
+				<div class="plan">
+					<h3 class="plan-title">Subscription Plan</h3>
+					<div class="plan-price">AED 199-599<span>/mo</span></div>
+					<ul class="plan-features">
+						<li><i class="fas fa-check-circle"></i> 7% Commission</li>
+						<li><i class="fas fa-check-circle"></i> 3% Service Fee (min AED 1)</li>
+						<li><i class="fas fa-check-circle"></i> No Postpaid Fee</li>
+						<li><i class="fas fa-check-circle"></i> Advanced Tools Access</li>
+						<li><i class="fas fa-check-circle"></i> Teams & Polks Features</li>
+					</ul>
+					<a href="#download" class="btn">Get Started</a>
+				</div>
+
+				<div class="plan popular">
+					<div class="popular-badge">POPULAR</div>
+					<div class="limited-offer">LIMITED TIME</div>
+					<h3 class="plan-title">Postpaid Plan</h3>
+					<div class="plan-price">AED 0<span>/mo</span></div>
+
+					<div class="offer-comparison">
+						<span class="old-price">10%</span>
+						<span class="new-price">0% Postpaid Fee</span>
+						<span class="offer-tag">100% OFF</span>
+					</div>
+
+					<ul class="plan-features">
+						<li><i class="fas fa-check-circle"></i> 7% Commission</li>
+						<li><i class="fas fa-check-circle"></i> 3% Service Fee (min AED 1)</li>
+						<li><i class="fas fa-check-circle" style="color: #ff3366;"></i> <strong>0% Postpaid Fee</strong>
+							<span class="offer-tag">Limited Time</span>
+						</li>
+						<li><i class="fas fa-check-circle"></i> Advanced Tools Access</li>
+						<li><i class="fas fa-check-circle"></i> No Monthly Commitment</li>
+					</ul>
+					<a href="#download" class="btn">Get Started</a>
+				</div>
+			</div>
+
+			<p style="text-align: center; margin-top: 20px; font-style: italic;">
+				* Both plans include access to advanced tools. Terms and conditions apply.
+			</p>
+		</div>
+
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-chart-pie"></i> See The Difference</h2>
+			<p>With Winlucks, you keep significantly more of your earnings compared to other marketplaces. Here's an
+				example for an AED 100 order:</p>
+
+			<div class="example">
+				<div class="example-card">
+					<div class="example-percentage">10%</div>
+					<h3>Winlucks Subscription</h3>
+					<div class="example-amount">AED 100 Sale</div>
+					<div class="example-earnings">You Keep: AED 90</div>
+					<p>Total Fees: AED 10</p>
+				</div>
+
+				<div class="example-card">
+					<div class="example-percentage">10%</div>
+					<h3>Winlucks Postpaid</h3>
+					<div class="example-amount">AED 100 Sale</div>
+					<div class="example-earnings">You Keep: AED 90</div>
+					<p>Total Fees: AED 10</p>
+				</div>
+
+				<div class="example-card">
+					<div class="example-percentage">25%</div>
+					<h3>Other Marketplaces</h3>
+					<div class="example-amount">AED 100 Sale</div>
+					<div class="example-earnings">You Keep: ~AED 75</div>
+					<p>Total Fees: ~AED 25</p>
+				</div>
+			</div>
+
+			<div class="percentage-highlight">
+				<p>Save up to 15% on fees compared to other marketplaces!</p>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-gift"></i> Merchant Benefits & Features</h2>
+			<p>Winlucks offers a comprehensive set of features designed to help your business grow and succeed.</p>
+
+			<ul class="benefits-list">
+				<li>
+					<i class="fas fa-store"></i>
+					<div>
+						<strong>Free Basic Plan</strong> - Includes rewards, product management, and promotions. Paid
+						plans offer additional e-commerce features.
+					</div>
+				</li>
+				<li>
+					<i class="fas fa-box"></i>
+					<div>
+						<strong>Product Listing</strong> - Upload product details, pricing, and availability via the
+						vendor dashboard.
+					</div>
+				</li>
+				<li>
+					<i class="fas fa-tags"></i>
+					<div>
+						<strong>Customizable Deals & Rewards</strong> - Create exclusive deals, discounts, and rewards
+						to attract customers.
+					</div>
+				</li>
+				<li>
+					<i class="fas fa-coins"></i>
+					<div>
+						<strong>Reward Coins & Incentive System</strong> - Customers earn coins with purchases; use
+						coins for additional discounts and prizes.
+					</div>
+				</li>
+				<li>
+					<i class="fas fa-chart-bar"></i>
+					<div>
+						<strong>Vendor Dashboard & Order Management</strong> - Manage orders and track sales performance
+						through an intuitive dashboard.
+					</div>
+				</li>
+				<li>
+					<i class="fas fa-bullhorn"></i>
+					<div>
+						<strong>Instant Alerts & Exclusive Savings</strong> - Receive notifications for rewards and
+						special offers to plan shopping effectively.
+					</div>
+				</li>
+				<li>
+					<i class="fas fa-search"></i>
+					<div>
+						<strong>Exposure to Hidden Shops & Products</strong> - Winlucks helps customers discover
+						lesser-known shops and products.
+					</div>
+				</li>
+				<li>
+					<i class="fas fa-gift"></i>
+					<div>
+						<strong>Coin Gifting</strong> - Send reward coins as gifts to customers, adding a personal touch
+						to promotions.
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="coin-section">
+			<div class="logo-container">
+
+				<div class="logo-wrapper"> <img src="COIN-3.png" alt="Logo" class="logo-img"> </div>
+
+			</div>
+			<div class="coin-content">
+				<h2 class="card-title"><i class="fas fa-coins"></i> Winlucks Reward System</h2>
+				<p>Our unique reward system helps you attract and retain customers while increasing your sales.</p>
+				<ul style="margin: 20px 0; padding-left: 20px;">
+					<li style="margin-bottom: 10px;">Customers earn reward coins with every purchase</li>
+					<li style="margin-bottom: 10px;">Coins can be redeemed for discounts on future purchases</li>
+					<li style="margin-bottom: 10px;">Special reward events drive customer engagement</li>
+					<li style="margin-bottom: 10px;">Increased customer loyalty and repeat business</li>
+				</ul>
+				<p>As a merchant, you can also participate in our merchant reward programs and win exclusive prizes!</p>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-mobile-alt"></i> Merchant App Features</h2>
+			<p>Our powerful merchant app gives you complete control over your business right from your mobile device.
+			</p>
+
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+					<h3 class="feature-title">Dashboard Analytics</h3>
+					<p class="feature-desc">Track sales, customer engagement, and performance metrics in real-time</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-box-open"></i></div>
+					<h3 class="feature-title">Product Management</h3>
+					<p class="feature-desc">Add, edit, or remove products directly from your mobile device</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-tag"></i></div>
+					<h3 class="feature-title">Promotion Creation</h3>
+					<p class="feature-desc">Create and manage special offers and discounts on the go</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-coins"></i></div>
+					<h3 class="feature-title">Reward Management</h3>
+					<p class="feature-desc">Set up and monitor reward coins and special events</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-bell"></i></div>
+					<h3 class="feature-title">Instant Notifications</h3>
+					<p class="feature-desc">Get alerted for new orders, customer queries, and reward winners</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+					<h3 class="feature-title">Performance Reports</h3>
+					<p class="feature-desc">Access detailed reports on sales, customer behavior, and promotion
+						effectiveness</p>
+				</div>
+			</div>
+		</div>
+		<!-- Enhanced Download Section -->
+		<div class="download-section" id="download">
+			<h2 class="download-title">Ready to Grow Your Business?</h2>
+
+			<p class="download-subtitle">Join thousands of successful merchants who are growing their business with
+				Winlucks. Download our merchant kit and start your journey today!</p>
+
+			<div class="download-graphic">
+				<div class="graphic-item">
+					<i class="fas fa-store"></i>
+					<span>Set Up Shop</span>
+				</div>
+				<div class="graphic-item">
+					<i class="fas fa-chart-line"></i>
+					<span>Grow Sales</span>
+				</div>
+				<div class="graphic-item">
+					<i class="fas fa-trophy"></i>
+					<span>Earn Rewards</span>
+				</div>
+			</div>
+
+			<div>
+				<a href="https://play.google.com/store/apps/details?id=com.winlucks.merchant"
+					class="btn-app btn-google">
+					<i class="fab fa-google-play"></i> Google Play
+				</a>
+				<a href="https://apps.apple.com/in/app/winlucks-business/id6736730093" class="btn-app btn-apple">
+					<i class="fab fa-apple"></i> App Store
+				</a>
+			</div>
+
+			<h1 class="download-title">Download</h1>
+		</div>
+
+
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-headset"></i> We're Here to Help</h2>
+			<p>Our dedicated support team is available to assist you with any questions or issues.</p>
+
+			<div class="support-options">
+				<div class="support-option">
+					<div class="support-icon"><i class="fas fa-envelope"></i></div>
+					<h3 class="support-title">Email Support</h3>
+					<p class="support-detail">merchantsupport@winlucks.com</p>
+					<p>We typically respond within 24 hours</p>
+				</div>
+
+				<div class="support-option">
+					<div class="support-icon"><i class="fas fa-phone"></i></div>
+					<h3 class="support-title">Phone Support</h3>
+					<p class="support-detail">+971 58 98 50 10 2</p>
+					<p>Available Mon-Sun, 8AM-7PM GST</p>
+				</div>
+
+				<div class="support-option">
+					<div class="support-icon"><i class="fab fa-whatsapp"></i></div>
+					<h3 class="support-title">WhatsApp Support</h3>
+					<p class="support-detail">+971 54 31 32 35 7</p>
+					<p>Get quick answers to your questions</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2 class="card-title"><i class="fas fa-rocket"></i> Ready to Grow with Winlucks?</h2>
+			<p>Join hundreds of savvy merchants who have already made the switch to Winlucks. Start keeping more of your
+				earnings today!</p>
+
+			<div style="text-align: center; margin: 40px 0;">
+
+				<a href="market-insights.html" class="btn2">
+					<i class="fas fa-chart-line"></i> Explore UAE Market Insights
+				</a>
+				<a href="onboarding-process.html" class="btn2">
+					<i class="fas fa-sign-in-alt"></i> Onboarding Process
+				</a>
+				<a href="MerchantKnowledgeBase.html" class="btn2">
+					<i class="fas fa-sign-in-alt"></i> Knowledge Base
+				</a>
+				<a href="FAQs.html" class="btn2">
+					<i class="fas fa-sign-in-alt"></i> FAQs
+				</a>
+				 <div style="text-align: center; margin: 40px 0;">
+					<a href="PricingCalculator.html" class="btn3" style="padding: 10px 50px; font-size: 1.2rem;">Pricing Comparison Calculator
+						Today</a>
+				</div> 
+			</div>
+
+			<div class="contact-info">
+				<p>Have questions? Contact our merchant support team:</p>
+				<p>Email: merchantsupport@winlucks.com | Phone: +971 58 98 50 10 2</p>
+				<p>Website: www.winlucks.com</p>
+			</div>
+		</div>
+
+
+		<div class="footer">
+			<p style="margin-bottom: 15px;">
+				<a href="winlucks-small-business.html" style="color: #fdb614; text-decoration: none;">
+					<i class="fas fa-store"></i> Special Programs for Small Businesses
+				</a>
+			</p>
+			<p>&copy; 2025 Winlucks. All rights reserved.</p>
+			<p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+			<p>Designed for businesses in the UAE to grow and succeed.</p>
+		</div>
+
+		<!-- Add this in the footer section before the contact info -->
+
+	</div>
+
+	<script>
+		// Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedItems = document.querySelectorAll('.plan, .feature-card, .example-card, .support-option, .benefits-list li');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+	</script>
+</body>
+
+</html>
