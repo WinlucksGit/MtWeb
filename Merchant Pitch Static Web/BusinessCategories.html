@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Business Categories - Winlucks Merchant Partnership</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="icon" type="image/jpg" href="LW.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-img {
+            max-width: 250px;
+            height: auto;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #fdb614;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+            position: relative;
+        }
+        
+        .btn:hover {
+            background: #e6a410;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #60269e;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+            border-left: 5px solid #60269e;
+        }
+        
+        .card-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(96, 38, 158, 0.2);
+        }
+        
+        .category-img {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-img img {
+            transform: scale(1.05);
+        }
+        
+        .category-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            color: #60269e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .category-desc {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            background: #f9f7ff;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #60269e;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #7d3cc4;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: #60269e;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .logo-img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="Merchant-Benifit-Web.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Merchant Benefits
+        </a>
+
+        <header>
+        
+            <div class="tagline">UAE Business Categories on Winlucks</div>
+            <p>Discover the diverse range of UAE businesses that thrive with Winlucks</p>
+        
+        </header>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-store"></i> Perfect for UAE Businesses</h2>
+            <p>Winlucks helps various types of UAE businesses attract more customers, increase sales, and build loyalty through our innovative reward system. Here are some of the business categories that benefit most from joining Winlucks in the UAE market.</p>
+        </div>
+
+        <div class="card" id="categories">
+            <h2 class="card-title"><i class="fas fa-th-large"></i> Popular UAE Business Categories</h2>
+            
+            <div class="categories-grid">
+                <!-- Arabic Restaurants -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arabic Restaurant">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-utensils"></i> Arabic Restaurants</h3>
+                        <p class="category-desc">Attract food lovers with authentic Emirati and Middle Eastern cuisine offerings and Winlucks rewards.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cafeterias -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cafeteria">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-coffee"></i> Cafeterias</h3>
+                        <p class="category-desc">Increase daily customer visits with karak chai, Arabic coffee, and snack promotions through Winlucks.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">78%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car Wash Centers -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Car Wash">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-car"></i> Car Wash Centers</h3>
+                        <p class="category-desc">Turn one-time customers into regulars with reward programs for frequent car cleaning services.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">72%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.7★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Laundry Services -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Laundry Service">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-tshirt"></i> Laundry Services</h3>
+                        <p class="category-desc">Build a loyal customer base with convenient laundry and dry-cleaning reward programs.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">68%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.6★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Perfume Shops -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1595425970377-2f8ded7c7b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Perfume Shop">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-spray-can"></i> Perfume & Oud Shops</h3>
+                        <p class="category-desc">Attract customers looking for traditional Arabic fragrances, oud, and bakhoor with special offers.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">75%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Abaya Boutiques -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1562596987-3a8b9e0eefe4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Abaya Boutique">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-vest"></i> Abaya Boutiques</h3>
+                        <p class="category-desc">Increase sales of traditional and modern abayas, hijabs, and modest fashion with targeted promotions.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">80%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dates Shops -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1593006431966-85c5ef03f7e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dates Shop">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-apple-alt"></i> Dates & Gift Shops</h3>
+                        <p class="category-desc">Boost sales of premium dates, Arabic sweets, and gift boxes for special occasions and corporate gifting.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">82%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hookah Lounges -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1611500004524-228a7db4f892?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hookah Lounge">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-smoking"></i> Shisha & Hookah Lounges</h3>
+                        <p class="category-desc">Increase evening traffic and build regular customer base with shisha flavor promotions and rewards.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">77%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.7★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tailoring Shops -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1595273670153-3262a51c5c4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tailoring Shop">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-cut"></i> Tailoring & Alteration Shops</h3>
+                        <p class="category-desc">Attract customers needing custom tailoring, alterations, and traditional garment services.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">70%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.7★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phone Repair -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Phone Repair">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-mobile-alt"></i> Phone Repair Services</h3>
+                        <p class="category-desc">Build trust and repeat business with quick, reliable phone repair services and reward programs.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">73%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barber Shops -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Barber Shop">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-cut"></i> Barber Shops</h3>
+                        <p class="category-desc">Increase regular appointments and build loyal customer base with grooming service rewards.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">76%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flower Shops -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Flower Shop">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-spa"></i> Flower Shops</h3>
+                        <p class="category-desc">Attract customers for special occasions and everyday purchases with Winlucks rewards and promotions.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">72%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pet Shops -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pet Shop">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-paw"></i> Pet Shops & Accessories</h3>
+                        <p class="category-desc">Pet owners are loyal customers. Winlucks helps you build lasting relationships with pet parents.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">81%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bakeries -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab794f24d8c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bakery">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-bread-slice"></i> Bakeries & Sweet Shops</h3>
+                        <p class="category-desc">Increase daily customer visits with Arabic sweets, kunafa, baklava and other traditional desserts.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grocery Stores -->
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grocery Store">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title"><i class="fas fa-shopping-basket"></i> Mini Supermarkets</h3>
+                        <p class="category-desc">Increase regular shopping trips and average basket size with reward programs on daily essentials.</p>
+                        <div class="category-stats">
+                            <div class="stat">
+                                <div class="stat-number">77%</div>
+                                <div class="stat-label">Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.7★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-chart-line"></i> Ready to Attract UAE Customers?</h2>
+            <p>No matter what type of business you operate in the UAE, Winlucks can help you reach new customers and increase sales. Join our growing community of successful UAE merchants today!</p>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="Merchant-Benifit-Web.html" class="btn">Join Winlucks Today</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Winlucks. All rights reserved.</p>
+            <p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+            <p>Designed for businesses in the UAE to grow and succeed.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedItems = document.querySelectorAll('.category-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

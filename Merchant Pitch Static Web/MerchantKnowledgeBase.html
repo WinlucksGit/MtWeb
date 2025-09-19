@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Resources - Winlucks Knowledge Base</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="icon" type="image/jpg" href="LW.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-img {
+            max-width: 250px;
+            height: auto;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #fdb614;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+            position: relative;
+        }
+        
+        .btn:hover {
+            background: #e6a410;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #60269e;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+            border-left: 5px solid #60269e;
+        }
+        
+        .card-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .search-container {
+            background: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            margin: 30px 0;
+        }
+        
+        .search-container input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-container button {
+            background: #60269e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-container button:hover {
+            background: #7d3cc4;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #60269e;
+            height: 100%;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(96, 38, 158, 0.2);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            color: #7d3cc4;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            color: #60269e;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .category-desc {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .resource-list {
+            list-style-type: none;
+        }
+        
+        .resource-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .resource-list li i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .resource-list a {
+            color: #7d3cc4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-list a:hover {
+            color: #60269e;
+        }
+        
+        .video-section {
+            margin: 40px 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-thumbnail iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-content {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-size: 1.1rem;
+            color: #60269e;
+            margin-bottom: 10px;
+        }
+        
+        .video-desc {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .downloads-section {
+            margin: 40px 0;
+        }
+        
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .download-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .download-icon {
+            font-size: 2.5rem;
+            color: #7d3cc4;
+            margin-bottom: 15px;
+        }
+        
+        .download-title {
+            font-size: 1.1rem;
+            color: #60269e;
+            margin-bottom: 10px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #fdb614;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #e6a410;
+        }
+        
+        .faq-section {
+            margin: 40px 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(96, 38, 158, 0.1);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: #60269e;
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #555;
+            display: none;
+        }
+        
+        .faq-active .faq-answer {
+            display: block;
+        }
+        
+        .faq-active .faq-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: #60269e;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid, .video-grid, .downloads-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .logo-img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="Merchant-Benifit-Web.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Merchant Benefits
+        </a>
+        <header>           
+            <div class="tagline">Merchant Resources & Knowledge Base</div>
+            <p>Everything you need to succeed with Winlucks - guides, tutorials, and best practices</p>
+           
+        </header>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-search"></i> Find Answers Quickly</h2>
+            <p>Search our knowledge base for articles, guides, and solutions to common questions:</p>
+            
+            <div class="search-container">
+                <input type="text" placeholder="What do you need help with?">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            
+            <div style="text-align: center;">
+                <p>Popular searches: <a href="#" style="color: #7d3cc4; text-decoration: none; margin: 0 5px;">setup payment</a> • <a href="#" style="color: #7d3cc4; text-decoration: none; margin: 0 5px;">reward coins</a> • <a href="#" style="color: #7d3cc4; text-decoration: none; margin: 0 5px;">manage orders</a> • <a href="#" style="color: #7d3cc4; text-decoration: none; margin: 0 5px;">promotions</a></p>
+            </div>
+        </div>
+
+        <div class="card" id="categories">
+            <h2 class="card-title"><i class="fas fa-graduation-cap"></i> Learning Categories</h2>
+            <p>Browse our resources by category to find exactly what you need:</p>
+            
+            <div class="categories-grid">
+                <!-- Getting Started -->
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-play-circle"></i></div>
+                    <h3 class="category-title">Getting Started</h3>
+                    <p class="category-desc">New to Winlucks? Start here with setup guides and onboarding resources.</p>
+                    <ul class="resource-list">
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Merchant Onboarding Guide</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Platform Overview Video</a></li>
+                        <li><a href="#"><i class="fas fa-list-check"></i> First 30 Days Checklist</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> App Setup Tutorial</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Products & Inventory -->
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-box-open"></i></div>
+                    <h3 class="category-title">Products & Inventory</h3>
+                    <p class="category-desc">Learn how to manage your product catalog and inventory effectively.</p>
+                    <ul class="resource-list">
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Product Listing Best Practices</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Bulk Upload Tutorial</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Inventory Management Guide</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Product Photography Tips</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Orders & Fulfillment -->
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3 class="category-title">Orders & Fulfillment</h3>
+                    <p class="category-desc">Manage orders, process payments, and handle delivery efficiently.</p>
+                    <ul class="resource-list">
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Order Management Guide</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Payment Processing Tutorial</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Delivery Setup Guide</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Returns & Refunds Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Rewards & Promotions -->
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-gift"></i></div>
+                    <h3 class="category-title">Rewards & Promotions</h3>
+                    <p class="category-desc">Maximize customer engagement with effective rewards and promotions.</p>
+                    <ul class="resource-list">
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Reward Coins Strategy Guide</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Creating Promotions Tutorial</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Seasonal Campaign Ideas</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Loyalty Program Best Practices</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Marketing & Growth -->
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3 class="category-title">Marketing & Growth</h3>
+                    <p class="category-desc">Grow your business with effective marketing strategies and customer acquisition.</p>
+                    <ul class="resource-list">
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Digital Marketing Guide</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Social Media Promotion Tutorial</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Customer Retention Strategies</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Review Management Guide</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Analytics & Reports -->
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3 class="category-title">Analytics & Reports</h3>
+                    <p class="category-desc">Understand your business performance with data and analytics.</p>
+                    <ul class="resource-list">
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Dashboard Analytics Guide</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Sales Reports Tutorial</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Customer Insights Guide</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Performance Benchmarking</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-film"></i> Video Tutorials</h2>
+            <p>Watch step-by-step tutorials to master the Winlucks platform:</p>
+            
+            <div class="video-section">
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <iframe src="https://www.youtube.com/embed/5Peo-ivmupE" title="Winlucks Merchant App Tutorial" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Merchant App Walkthrough</h3>
+                            <p class="video-desc">Learn how to navigate and use all features of the Winlucks Merchant app.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <iframe src="https://www.youtube.com/embed/3L5eRo3tye4" title="Setting Up Reward Coins" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Setting Up Reward Coins</h3>
+                            <p class="video-desc">Create an effective reward system to attract and retain customers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <iframe src="https://www.youtube.com/embed/7gquYRxLMFI" title="Managing Orders on Winlucks" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Managing Orders Efficiently</h3>
+                            <p class="video-desc">Streamline your order processing and fulfillment workflow.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <iframe src="https://www.youtube.com/embed/9No-FiEAwGA" title="Creating Promotions on Winlucks" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Creating Promotional Campaigns</h3>
+                            <p class="video-desc">Design effective promotions that drive sales and customer engagement.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://www.youtube.com/channel/UCXo4nH-L1p7kOJXQZeIidpQ" class="btn" target="_blank">View All Video Tutorials</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-file-download"></i> Download Resources</h2>
+            <p>Access these helpful templates, guides, and tools for your business:</p>
+            
+            <div class="downloads-section">
+                <div class="downloads-grid">
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                        <h3 class="download-title">Merchant Success Guide</h3>
+                        <p>Complete guide to maximizing your Winlucks experience</p>
+                        <a href="https://github.com/winlucks/merchant-resources/raw/main/winlucks-merchant-success-guide.pdf" class="download-btn" download>Download PDF</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-file-excel"></i></div>
+                        <h3 class="download-title">Inventory Template</h3>
+                        <p>Excel template for managing your product inventory</p>
+                        <a href="https://github.com/winlucks/merchant-resources/raw/main/winlucks-inventory-template.xlsx" class="download-btn" download>Download Template</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-file-image"></i></div>
+                        <h3 class="download-title">Marketing Kit</h3>
+                        <p>Social media templates and promotional materials</p>
+                        <a href="https://github.com/winlucks/merchant-resources/raw/main/winlucks-marketing-kit.zip" class="download-btn" download>Download Kit</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3 class="download-title">Promotion Planner</h3>
+                        <p>Plan your annual promotional calendar</p>
+                        <a href="https://github.com/winlucks/merchant-resources/raw/main/winlucks-promotion-planner.xlsx" class="download-btn" download>Download Planner</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <p>Find quick answers to common questions about using Winlucks:</p>
+            
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I set up reward coins for my customers?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can set up reward coins through your merchant dashboard. Go to the "Rewards" section, click "Create Reward Program," and choose the percentage of purchase value you want to allocate as coins. You can also set up special bonus coin events for specific products or during promotions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How often will I receive payments from Winlucks?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Winlucks processes payments weekly. You'll receive your settlement every Tuesday for all orders completed in the previous week (Monday-Sunday). The funds are typically deposited directly to your bank account within 1-2 business days after processing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I integrate Winlucks with my existing POS system?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, Winlucks offers API integration for popular POS systems. Contact our merchant support team to discuss integration options. We also provide manual import/export options for inventory and order management if full integration isn't available for your specific system.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I optimize my product listings for better visibility?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To optimize your product listings: use high-quality images from multiple angles, write detailed descriptions with relevant keywords, set competitive prices, use all available product attributes, and encourage customer reviews. Products with complete information and positive reviews rank higher in search results.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What should I do if I encounter technical issues with the merchant app?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>First, try closing and reopening the app. If the issue persists, check for app updates in your app store. For ongoing issues, contact our technical support team at support@winlucks.com or call +971 58 98 50 10 2. Please describe the issue and include screenshots if possible for faster resolution.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="btn">View Full FAQ Section</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-hands-helping"></i> Need Additional Help?</h2>
+            <p>Our support team is here to assist you with any questions or issues:</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-envelope"></i></div>
+                    <h3 class="category-title">Email Support</h3>
+                    <p class="category-desc">Send us your questions and we'll respond within 24 hours.</p>
+                    <p style="text-align: center; margin-top: 15px;"><strong>support@winlucks.com</strong></p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon"><i class="fas fa-phone"></i></div>
+                    <h3 class="category-title">Phone Support</h3>
+                    <p class="category-desc">Speak directly with our merchant support team.</p>
+                    <p style="text-align: center; margin-top: 15px;"><strong>+971 58 98 50 10 2</strong></p>
+                    <p style="text-align: center;">Sun-Thu, 8AM-6PM GST</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3 class="category-title">WhatsApp Support</h3>
+                    <p class="category-desc">Quick answers through WhatsApp messaging.</p>
+                    <p style="text-align: center; margin-top: 15px;"><strong>+971 54 31 32 35 7</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Winlucks. All rights reserved.</p>
+            <p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+            <p>Designed for businesses in the UAE to grow and succeed.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedItems = document.querySelectorAll('.category-card, .video-card, .download-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('faq-active');
+                });
+            });
+
+            // Simple search functionality
+            const searchInput = document.querySelector('.search-container input');
+            const searchButton = document.querySelector('.search-container button');
+            
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                if (searchTerm) {
+                    alert('Searching for: ' + searchTerm + '\nIn a real implementation, this would filter resources.');
+                    // In a real implementation, this would filter the resources based on the search term
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

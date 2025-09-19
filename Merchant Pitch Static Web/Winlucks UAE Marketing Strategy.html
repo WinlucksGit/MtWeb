@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Strategy - Winlucks UAE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-img {
+            max-width: 250px;
+            height: auto;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #fdb614;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+            position: relative;
+        }
+        
+        .btn:hover {
+            background: #e6a410;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #60269e;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+            border-left: 5px solid #60269e;
+        }
+        
+        .card-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .strategy-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #60269e;
+            height: 100%;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(96, 38, 158, 0.2);
+        }
+        
+        .strategy-icon {
+            font-size: 2.5rem;
+            color: #7d3cc4;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .strategy-title {
+            font-size: 1.3rem;
+            color: #60269e;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .strategy-desc {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .strategy-features {
+            list-style-type: none;
+            margin: 15px 0;
+        }
+        
+        .strategy-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .strategy-features li i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .timeline-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+        }
+        
+        .timeline-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #60269e;
+            z-index: 1;
+        }
+        
+        .timeline-phase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .timeline-point {
+            width: 80px;
+            height: 80px;
+            background: #fdb614;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(253, 182, 20, 0.4);
+        }
+        
+        .timeline-label {
+            font-weight: bold;
+            color: #60269e;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-desc {
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+            max-width: 150px;
+        }
+        
+        .target-audience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .audience-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .audience-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .audience-icon {
+            font-size: 2.5rem;
+            color: #7d3cc4;
+            margin-bottom: 15px;
+        }
+        
+        .audience-title {
+            font-size: 1.2rem;
+            color: #60269e;
+            margin-bottom: 10px;
+        }
+        
+        .audience-desc {
+            color: #555;
+        }
+        
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #7d3cc4;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            color: #60269e;
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: #60269e;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .strategy-grid, .target-audience, .metrics-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .timeline-phase {
+                margin-bottom: 30px;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .logo-img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="Merchant-Benifit-Web.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Merchant Benefits
+        </a>
+
+        <header>
+            <div class="logo-container">
+                <img src="https://wlstaticwebstorage.blob.core.windows.net/$web/YELLOW.png" alt="Winlucks Logo" class="logo-img">
+            </div>
+            <div class="tagline">Winlucks UAE Marketing Strategy</div>
+            <p>Our comprehensive approach to dominating the UAE rewards marketplace</p>
+            <a href="#strategy" class="btn">Explore Our Strategy</a>
+        </header>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-bullseye"></i> Market Opportunity in UAE</h2>
+            <p>The UAE presents a unique opportunity for Winlucks with its high smartphone penetration, tech-savvy population, and thriving SME sector. Our strategy focuses on addressing key pain points for both merchants and consumers.</p>
+            
+            <div class="metrics-container">
+                <div class="metric-card">
+                    <div class="metric-value">86%</div>
+                    <div class="metric-label">Smartphone Penetration</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">74%</div>
+                    <div class="metric-label">App Download Growth</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">400K+</div>
+                    <div class="metric-label">SMEs in UAE</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$12B+</div>
+                    <div class="metric-label">E-commerce Market</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="strategy">
+            <h2 class="card-title"><i class="fas fa-chess-knight"></i> Core Marketing Strategy</h2>
+            <p>Winlucks employs a multi-faceted approach to capture market share in the UAE, focusing on both merchant acquisition and consumer adoption.</p>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-store"></i></div>
+                    <h3 class="strategy-title">Merchant-First Approach</h3>
+                    <p class="strategy-desc">We prioritize merchant success with transparent pricing, robust support, and innovative tools.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Significantly lower fees than competitors</li>
+                        <li><i class="fas fa-check"></i> Dedicated onboarding team</li>
+                        <li><i class="fas fa-check"></i> Advanced merchant tools</li>
+                        <li><i class="fas fa-check"></i> Co-marketing opportunities</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-gift"></i></div>
+                    <h3 class="strategy-title">Rewards Ecosystem</h3>
+                    <p class="strategy-desc">We create a virtuous cycle where merchants attract customers who earn and redeem rewards.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Winlucks covers reward costs</li>
+                        <li><i class="fas fa-check"></i> Gamified earning experience</li>
+                        <li><i class="fas fa-check"></i> Multiple redemption options</li>
+                        <li><i class="fas fa-check"></i> Seasonal reward boosts</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="strategy-title">Hyperlocal Focus</h3>
+                    <p class="strategy-desc">We target specific UAE neighborhoods and communities with tailored approaches.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Community-specific campaigns</li>
+                        <li><i class="fas fa-check"></i> Localized merchant onboarding</li>
+                        <li><i class="fas fa-check"></i> Neighborhood champions</li>
+                        <li><i class="fas fa-check"></i> Area-based promotions</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="strategy-title">Digital-First Acquisition</h3>
+                    <p class="strategy-desc">We leverage digital channels to efficiently acquire both merchants and consumers.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Targeted social media campaigns</li>
+                        <li><i class="fas fa-check"></i> Search engine optimization</li>
+                        <li><i class="fas fa-check"></i> Influencer partnerships</li>
+                        <li><i class="fas fa-check"></i> Performance marketing</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-handshake"></i></div>
+                    <h3 class="strategy-title">Strategic Partnerships</h3>
+                    <p class="strategy-desc">We collaborate with key players in the UAE ecosystem to accelerate growth.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Bank and payment partnerships</li>
+                        <li><i class="fas fa-check"></i> Business association ties</li>
+                        <li><i class="fas fa-check"></i> Mall and retail collaborations</li>
+                        <li><i class="fas fa-check"></i> Government entity partnerships</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="strategy-title">Seasonal Campaigns</h3>
+                    <p class="strategy-desc">We leverage UAE-specific seasons and events to drive engagement.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Ramadan and Eid promotions</li>
+                        <li><i class="fas fa-check"></i> Dubai Shopping Festival integration</li>
+                        <li><i class="fas fa-check"></i> National Day celebrations</li>
+                        <li><i class="fas fa-check"></i> Summer surprise campaigns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-road"></i> Market Expansion Timeline</h2>
+            <p>Our phased approach to capturing the UAE market ensures sustainable growth and market penetration.</p>
+            
+            <div class="timeline-container">
+                <h3 class="timeline-title">Strategic Rollout Plan</h3>
+                <div class="timeline">
+                    <div class="timeline-phase">
+                        <div class="timeline-point">1</div>
+                        <div class="timeline-label">Foundation Phase</div>
+                        <div class="timeline-desc">Dubai & Abu Dhabi core areas</div>
+                    </div>
+                    
+                    <div class="timeline-phase">
+                        <div class="timeline-point">2</div>
+                        <div class="timeline-label">Expansion Phase</div>
+                        <div class="timeline-desc">Other Emirates & suburbs</div>
+                    </div>
+                    
+                    <div class="timeline-phase">
+                        <div class="timeline-point">3</div>
+                        <div class="timeline-label">Growth Phase</div>
+                        <div class="timeline-desc">National coverage</div>
+                    </div>
+                    
+                    <div class="timeline-phase">
+                        <div class="timeline-point">4</div>
+                        <div class="timeline-label">Dominance Phase</div>
+                        <div class="timeline-desc">Market leadership</div>
+                    </div>
+                </div>
+                
+                <div class="strategy-grid">
+                    <div class="strategy-card">
+                        <h3 class="strategy-title">Quarter 1-2 2024</h3>
+                        <ul class="strategy-features">
+                            <li><i class="fas fa-check"></i> Launch in Dubai (Downtown, Marina, JBR)</li>
+                            <li><i class="fas fa-check"></i> Onboard 500+ premium merchants</li>
+                            <li><i class="fas fa-check"></i> Acquire 25,000+ active users</li>
+                            <li><i class="fas fa-check"></i> Establish brand awareness</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <h3 class="strategy-title">Quarter 3-4 2024</h3>
+                        <ul class="strategy-features">
+                            <li><i class="fas fa-check"></i> Expand to Abu Dhabi and other emirates</li>
+                            <li><i class="fas fa-check"></i> Reach 2,000+ merchants nationwide</li>
+                            <li><i class="fas fa-check"></i> Grow to 100,000+ active users</li>
+                            <li><i class="fas fa-check"></i> Introduce advanced features</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <h3 class="strategy-title">2025</h3>
+                        <ul class="strategy-features">
+                            <li><i class="fas fa-check"></i> Achieve 5,000+ merchant partners</li>
+                            <li><i class="fas fa-check"></i> Reach 250,000+ active users</li>
+                            <li><i class="fas fa-check"></i> Expand to other GCC markets</li>
+                            <li><i class="fas fa-check"></i> Introduce financial services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-users"></i> Target Audience Strategy</h2>
+            <p>We employ different approaches for various segments of the UAE market to maximize effectiveness.</p>
+            
+            <div class="target-audience">
+                <div class="audience-card">
+                    <div class="audience-icon"><i class="fas fa-utensils"></i></div>
+                    <h3 class="audience-title">Restaurants & Cafés</h3>
+                    <p class="audience-desc">Focus on F&B businesses struggling with high commission rates from delivery platforms.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h3 class="audience-title">Retail Stores</h3>
+                    <p class="audience-desc">Target local boutiques and specialty stores seeking to increase foot traffic.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon"><i class="fas fa-spa"></i></div>
+                    <h3 class="audience-title">Services Businesses</h3>
+                    <p class="audience-desc">Appeal to salons, spas, and service providers looking for customer retention tools.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon"><i class="fas fa-gem"></i></div>
+                    <h3 class="audience-title">Luxury Retailers</h3>
+                    <p class="audience-desc">Partner with high-end brands for exclusive reward experiences.</p>
+                </div>
+            </div>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h3 class="strategy-title">Consumer Acquisition</h3>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Welcome bonuses for new users</li>
+                        <li><i class="fas fa-check"></i> Referral programs with cash rewards</li>
+                        <li><i class="fas fa-check"></i> Social media contests and giveaways</li>
+                        <li><i class="fas fa-check"></i> Partnerships with popular influencers</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h3 class="strategy-title">Merchant Acquisition</h3>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Free onboarding and setup</li>
+                        <li><i class="fas fa-check"></i> First-month fee waiver</li>
+                        <li><i class="fas fa-check"></i> Co-op marketing support</li>
+                        <li><i class="fas fa-check"></i> Dedicated account management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-chart-line"></i> Digital Marketing Approach</h2>
+            <p>Our data-driven digital marketing strategy maximizes ROI and accelerates user acquisition.</p>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fab fa-google"></i></div>
+                    <h3 class="strategy-title">Search Engine Marketing</h3>
+                    <p class="strategy-desc">Target high-intent users searching for rewards, discounts, and local businesses.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Google Ads with geo-targeting</li>
+                        <li><i class="fas fa-check"></i> App store optimization</li>
+                        <li><i class="fas fa-check"></i> Local SEO for merchant locations</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fab fa-facebook"></i></div>
+                    <h3 class="strategy-title">Social Media Marketing</h3>
+                    <p class="strategy-desc">Build brand awareness and engage with both merchants and consumers.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Targeted Facebook/Instagram ads</li>
+                        <li><i class="fas fa-check"></i> Engaging content strategy</li>
+                        <li><i class="fas fa-check"></i> Community management</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-envelope"></i></div>
+                    <h3 class="strategy-title">Email & SMS Marketing</h3>
+                    <p class="strategy-desc">Personalized communication to drive engagement and retention.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Behavioral triggered emails</li>
+                        <li><i class="fas fa-check"></i> Personalized offers</li>
+                        <li><i class="fas fa-check"></i> Merchant performance reports</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon"><i class="fas fa-microphone"></i></div>
+                    <h3 class="strategy-title">Influencer Partnerships</h3>
+                    <p class="strategy-desc">Leverage trusted voices to build credibility and reach new audiences.</p>
+                    <ul class="strategy-features">
+                        <li><i class="fas fa-check"></i> Food and lifestyle influencers</li>
+                        <li><i class="fas fa-check"></i> Local UAE personalities</li>
+                        <li><i class="fas fa-check"></i> Merchant spotlight features</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-rocket"></i> Ready to Join Our Growth Story?</h2>
+            <p>Be part of Winlucks' exciting journey to transform the UAE rewards and merchant ecosystem.</p>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="Merchant-Benifit-Web.html" class="btn">Become a Winlucks Merchant</a>
+            </div>
+            
+            <div class="metrics-container">
+                <div class="metric-card">
+                    <div class="metric-value">72%</div>
+                    <div class="metric-label">Merchant Retention Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3.5x</div>
+                    <div class="metric-label">Average ROI for Merchants</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">45%</div>
+                    <div class="metric-label">Repeat Customer Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">89%</div>
+                    <div class="metric-label">Merchant Satisfaction</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Winlucks. All rights reserved.</p>
+            <p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+            <p>Designed for businesses in the UAE to grow and succeed.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedItems = document.querySelectorAll('.strategy-card, .audience-card, .metric-card, .timeline-phase');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
