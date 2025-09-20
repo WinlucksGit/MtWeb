@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Comparison Calculator - Winlucks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="icon" type="image/jpg" href="LW.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-img {
+            max-width: 250px;
+            height: auto;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #fdb614;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+            position: relative;
+        }
+        
+        .btn:hover {
+            background: #e6a410;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #60269e;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+            border-left: 5px solid #60269e;
+        }
+        
+        .card-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 900px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .calculator-input {
+            background: #f9f7ff;
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .calculator-results {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #60269e;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e6e1ff;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #60269e;
+        }
+        
+        .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e6e1ff;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group select:focus {
+            outline: none;
+            border-color: #60269e;
+        }
+        
+        .slider-container {
+            margin-top: 10px;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e6e1ff;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #60269e;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            background: #7d3cc4;
+            transform: scale(1.2);
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-weight: bold;
+            color: #60269e;
+            margin-top: 10px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background: #f9f7ff;
+            color: #60269e;
+            font-weight: 600;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f9f7ff;
+        }
+        
+        .platform-name {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .platform-name i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .winlucks {
+            color: #60269e;
+        }
+        
+        .other {
+            color: #7d3cc4;
+        }
+        
+        .savings {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .cost {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            text-align: center;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #60269e;
+            margin: 10px 0;
+        }
+        
+        .result-label {
+            color: #7d3cc4;
+            font-size: 1.1rem;
+        }
+        
+        .savings-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .visualization {
+            margin: 30px 0;
+        }
+        
+        .bar-chart {
+            display: flex;
+            height: 200px;
+            align-items: flex-end;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .bar {
+            width: 60px;
+            background: #60269e;
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: height 0.5s ease;
+        }
+        
+        .bar-other {
+            background: #7d3cc4;
+        }
+        
+        .bar-label {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: 500;
+            color: #60269e;
+        }
+        
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: #60269e;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .logo-img {
+                max-width: 200px;
+            }
+            
+            .bar-chart {
+                flex-direction: column;
+                height: auto;
+                align-items: center;
+            }
+            
+            .bar {
+                width: 80%;
+                height: 40px !important;
+                margin-bottom: 40px;
+                border-radius: 5px;
+            }
+            
+            .bar-label {
+                bottom: -25px;
+            }
+            
+            .bar-value {
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Merchant Benefits
+        </a>
+
+        <header>
+           
+            <div class="tagline">Pricing Comparison Calculator</div>
+            <p>Discover how much you can save with Winlucks compared to other platforms</p>
+    
+        </header>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-calculator"></i> See Your Potential Savings</h2>
+            <p>Traditional marketplaces charge 15-30% commission on every sale, significantly reducing your profits. Winlucks offers a transparent pricing model with significantly lower fees. Use this calculator to see exactly how much you could save.</p>
+            
+            <div class="calculator-container" id="calculator">
+                <div class="calculator-input">
+                    <h3 style="color: #60269e; margin-bottom: 20px;">Enter Your Business Details</h3>
+                    
+                    <div class="input-group">
+                        <label for="monthlySales">Monthly Sales Volume (AED)</label>
+                        <input type="number" id="monthlySales" min="1000" max="1000000" value="10000" step="1000">
+                        <div class="slider-container">
+                            <input type="range" min="1000" max="100000" value="10000" class="slider" id="salesSlider">
+                            <div class="slider-value" id="salesValue">AED 10,000</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="averageOrder">Average Order Value (AED)</label>
+                        <input type="number" id="averageOrder" min="10" max="5000" value="150" step="10">
+                        <div class="slider-container">
+                            <input type="range" min="10" max="1000" value="150" class="slider" id="orderSlider">
+                            <div class="slider-value" id="orderValue">AED 150</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType">
+                            <option value="restaurant">Restaurant / Food</option>
+                            <option value="retail">Retail Store</option>
+                            <option value="services">Services</option>
+                            <option value="grocery">Grocery</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="platform">Compare With</label>
+                        <select id="platform">
+                            <option value="talabat">Competitor 1 (25-30%)</option>
+                            <option value="deliveroo">Competitor 2 (25-35%)</option>                            
+                            <option value="amazon">Competitor 3 (15-25%)</option>
+                            <option value="noon">Competitor 4 (15-20%)</option>
+                            <option value="custom">Custom Percentage</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group" id="customPercentGroup" style="display: none;">
+                        <label for="customPercent">Custom Commission Percentage</label>
+                        <input type="number" id="customPercent" min="5" max="50" value="25" step="0.5">
+                        <div class="slider-container">
+                            <input type="range" min="5" max="50" value="25" class="slider" id="percentSlider">
+                            <div class="slider-value" id="percentValue">25%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <h3 style="color: #60269e; margin-bottom: 20px;">Your Results</h3>
+                    
+                    <div class="result-card">
+                        <div class="result-label">Monthly Savings with Winlucks</div>
+                        <div class="result-value" id="savings">AED 1,800</div>
+                        <div class="savings-badge" id="savingsPercent">Save 18%</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-label">Annual Savings with Winlucks</div>
+                        <div class="result-value" id="annualSavings">AED 21,600</div>
+                        <div class="savings-badge">Substantial Savings</div>
+                    </div>
+                    
+                    <div class="visualization">
+                        <h4 style="text-align: center; color: #60269e; margin-bottom: 15px;">Monthly Fees Comparison</h4>
+                        <div class="bar-chart">
+                            <div class="bar" id="winlucksBar" style="height: 120px;">
+                                <div class="bar-value" id="winlucksValue">AED 1,000</div>
+                                <div class="bar-label">Winlucks</div>
+                            </div>
+                            <div class="bar bar-other" id="otherBar" style="height: 180px;">
+                                <div class="bar-value" id="otherValue">AED 2,800</div>
+                                <div class="bar-label" id="otherLabel">Other Platform</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Monthly Fees</th>
+                                <th>Your Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="platform-name">
+                                        <i class="fas fa-shield-alt winlucks"></i>
+                                        <span>Winlucks</span>
+                                    </div>
+                                </td>
+                                <td id="winlucksFees">AED 1,000</td>
+                                <td class="savings" id="winlucksEarnings">AED 9,000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="platform-name">
+                                        <i class="fas fa-shopping-cart other"></i>
+                                        <span id="comparisonPlatform">Other Platform</span>
+                                    </div>
+                                </td>
+                                <td class="cost" id="otherFees">AED 2,800</td>
+                                <td id="otherEarnings">AED 7,200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="index.html" class="btn">Join Winlucks & Start Saving</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-percentage"></i> Understanding Winlucks Pricing</h2>
+            <p>Winlucks offers transparent, straightforward pricing with no hidden fees. Here's how our pricing model compares to traditional marketplaces:</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Fee Type</th>
+                        <th>Winlucks</th>
+                        <th>Traditional Platforms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Commission Fee</td>
+                        <td class="savings">7% only</td>
+                        <td class="cost">15-30%</td>
+                    </tr>
+                    <tr>
+                        <td>Service Fee</td>
+                        <td class="savings">3% (min AED 1)</td>
+                        <td class="cost">Often included in commission</td>
+                    </tr>
+                    <tr>
+                        <td>Postpaid Fee</td>
+                        <td class="savings">0% (Limited Time Offer)</td>
+                        <td class="cost">0-5%</td>
+                    </tr>
+                    <tr>
+                        <td>Subscription</td>
+                        <td>AED 0-599/month</td>
+                        <td>Often included in commission</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Processing</td>
+                        <td class="savings">Included</td>
+                        <td class="cost">Sometimes additional 2-3%</td>
+                    </tr>
+                    <tr>
+                        <td>Setup Fee</td>
+                        <td class="savings">AED 0</td>
+                        <td class="cost">Sometimes AED 500-2000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-comment-dollar"></i> Real Merchant Examples</h2>
+            <p>See how actual Winlucks merchants are saving money compared to other platforms:</p>
+            
+            <div class="calculator-container">
+                <div class="result-card">
+                    <h4 style="color: #60269e;">Small Café</h4>
+                    <p>Monthly Sales: <strong>AED 8,000</strong></p>
+                    <p>Average Order: <strong>AED 35</strong></p>
+                    <div class="result-value" style="font-size: 1.5rem;">Saved <span class="savings">AED 1,440</span>/month</div>
+                    <p>That's <strong>AED 17,280</strong> per year!</p>
+                </div>
+                
+                <div class="result-card">
+                    <h4 style="color: #60269e;">Retail Store</h4>
+                    <p>Monthly Sales: <strong>AED 25,000</strong></p>
+                    <p>Average Order: <strong>AED 120</strong></p>
+                    <div class="result-value" style="font-size: 1.5rem;">Saved <span class="savings">AED 4,500</span>/month</div>
+                    <p>That's <strong>AED 54,000</strong> per year!</p>
+                </div>
+                
+                <div class="result-card">
+                    <h4 style="color: #60269e;">Restaurant</h4>
+                    <p>Monthly Sales: <strong>AED 45,000</strong></p>
+                    <p>Average Order: <strong>AED 85</strong></p>
+                    <div class="result-value" style="font-size: 1.5rem;">Saved <span class="savings">AED 8,100</span>/month</div>
+                    <p>That's <strong>AED 97,200</strong> per year!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-rocket"></i> Ready to Start Saving?</h2>
+            <p>Join hundreds of UAE merchants who are already saving significantly with Winlucks' transparent pricing model.</p>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="index" class="btn">Join Winlucks Today</a>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="result-card">
+                    <h4 style="color: #60269e;">No Long-Term Contracts</h4>
+                    <p>Start with our flexible postpaid plan with no monthly commitment</p>
+                </div>
+                
+                <div class="result-card">
+                    <h4 style="color: #60269e;">Easy Onboarding</h4>
+                    <p>Get set up and start selling in less than 48 hours</p>
+                </div>
+                
+                <div class="result-card">
+                    <h4 style="color: #60269e;">Dedicated Support</h4>
+                    <p>Our team helps you maximize your savings and growth</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Winlucks. All rights reserved.</p>
+            <p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+            <p>Designed for businesses in the UAE to grow and succeed.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all DOM elements
+            const monthlySalesInput = document.getElementById('monthlySales');
+            const salesSlider = document.getElementById('salesSlider');
+            const salesValue = document.getElementById('salesValue');
+            
+            const averageOrderInput = document.getElementById('averageOrder');
+            const orderSlider = document.getElementById('orderSlider');
+            const orderValue = document.getElementById('orderValue');
+            
+            const platformSelect = document.getElementById('platform');
+            const customPercentGroup = document.getElementById('customPercentGroup');
+            const customPercentInput = document.getElementById('customPercent');
+            const percentSlider = document.getElementById('percentSlider');
+            const percentValue = document.getElementById('percentValue');
+            
+            const savingsElement = document.getElementById('savings');
+            const savingsPercent = document.getElementById('savingsPercent');
+            const annualSavings = document.getElementById('annualSavings');
+            
+            const winlucksBar = document.getElementById('winlucksBar');
+            const otherBar = document.getElementById('otherBar');
+            const winlucksValue = document.getElementById('winlucksValue');
+            const otherValue = document.getElementById('otherValue');
+            const otherLabel = document.getElementById('otherLabel');
+            
+            const winlucksFees = document.getElementById('winlucksFees');
+            const winlucksEarnings = document.getElementById('winlucksEarnings');
+            const comparisonPlatform = document.getElementById('comparisonPlatform');
+            const otherFees = document.getElementById('otherFees');
+            const otherEarnings = document.getElementById('otherEarnings');
+            
+            // Platform commission rates
+            const platformRates = {
+                'talabat': 27.5,
+                'deliveroo': 30,
+                'careem': 27.5,
+                'amazon': 20,
+                'noon': 17.5,
+                'custom': 25
+            };
+            
+            // Platform names for display
+            const platformNames = {
+                'talabat': 'Comp 1',
+                'deliveroo': 'Comp 2',
+              
+                'amazon': 'Comp 3',
+                'noon': 'Comp 4',
+                'custom': 'Other Platform'
+            };
+            
+            // Sync sliders with input fields
+            function syncInputAndSlider(input, slider, valueDisplay, formatFunc) {
+                input.addEventListener('input', function() {
+                    slider.value = this.value;
+                    valueDisplay.textContent = formatFunc(this.value);
+                    calculateSavings();
+                });
+                
+                slider.addEventListener('input', function() {
+                    input.value = this.value;
+                    valueDisplay.textContent = formatFunc(this.value);
+                    calculateSavings();
+                });
+            }
+            
+            // Format currency
+            function formatCurrency(value) {
+                return 'AED ' + Number(value).toLocaleString('en-US');
+            }
+            
+            // Format percentage
+            function formatPercentage(value) {
+                return value + '%';
+            }
+            
+            // Initialize sync between inputs and sliders
+            syncInputAndSlider(monthlySalesInput, salesSlider, salesValue, formatCurrency);
+            syncInputAndSlider(averageOrderInput, orderSlider, orderValue, formatCurrency);
+            syncInputAndSlider(customPercentInput, percentSlider, percentValue, formatPercentage);
+            
+            // Show/hide custom percentage based on platform selection
+            platformSelect.addEventListener('change', function() {
+                if (this.value === 'custom') {
+                    customPercentGroup.style.display = 'block';
+                } else {
+                    customPercentGroup.style.display = 'none';
+                }
+                calculateSavings();
+            });
+            
+            // Calculate savings
+            function calculateSavings() {
+                const monthlySales = parseFloat(monthlySalesInput.value);
+                const averageOrder = parseFloat(averageOrderInput.value);
+                
+                // Get selected platform rate
+                let platformRate;
+                if (platformSelect.value === 'custom') {
+                    platformRate = parseFloat(customPercentInput.value);
+                } else {
+                    platformRate = platformRates[platformSelect.value];
+                }
+                
+                // Winlucks fees (7% commission + 3% service fee)
+                const winlucksFeePercent = 10; // 7% + 3%
+                const winlucksFeesAmount = monthlySales * (winlucksFeePercent / 100);
+                const winlucksEarningsAmount = monthlySales - winlucksFeesAmount;
+                
+                // Other platform fees
+                const otherFeesAmount = monthlySales * (platformRate / 100);
+                const otherEarningsAmount = monthlySales - otherFeesAmount;
+                
+                // Savings
+                const monthlySavings = otherFeesAmount - winlucksFeesAmount;
+                const annualSavingsAmount = monthlySavings * 12;
+                const savingsPercentage = (monthlySavings / monthlySales * 100).toFixed(1);
+                
+                // Update results
+                savingsElement.textContent = formatCurrency(monthlySavings.toFixed(0));
+                savingsPercent.textContent = 'Save ' + savingsPercentage + '%';
+                annualSavings.textContent = formatCurrency(annualSavingsAmount.toFixed(0));
+                
+                // Update comparison table
+                winlucksFees.textContent = formatCurrency(winlucksFeesAmount.toFixed(0));
+                winlucksEarnings.textContent = formatCurrency(winlucksEarningsAmount.toFixed(0));
+                
+                comparisonPlatform.textContent = platformNames[platformSelect.value];
+                otherFees.textContent = formatCurrency(otherFeesAmount.toFixed(0));
+                otherEarnings.textContent = formatCurrency(otherEarningsAmount.toFixed(0));
+                
+                // Update visualization
+                const maxFee = Math.max(winlucksFeesAmount, otherFeesAmount);
+                const winlucksBarHeight = (winlucksFeesAmount / maxFee) * 150;
+                const otherBarHeight = (otherFeesAmount / maxFee) * 150;
+                
+                winlucksBar.style.height = winlucksBarHeight + 'px';
+                otherBar.style.height = otherBarHeight + 'px';
+                
+                winlucksValue.textContent = formatCurrency(winlucksFeesAmount.toFixed(0));
+                otherValue.textContent = formatCurrency(otherFeesAmount.toFixed(0));
+                otherLabel.textContent = platformNames[platformSelect.value];
+            }
+            
+            // Initialize calculation
+            calculateSavings();
+            
+            // Add animation to results when they update
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'characterData' || mutation.type === 'childList') {
+                        mutation.target.parentElement.classList.add('highlight');
+                        setTimeout(function() {
+                            mutation.target.parentElement.classList.remove('highlight');
+                        }, 500);
+                    }
+                });
+            });
+            
+            // Observe results elements for changes
+            const resultsElements = [
+                savingsElement, savingsPercent, annualSavings, 
+                winlucksFees, winlucksEarnings, otherFees, otherEarnings,
+                winlucksValue, otherValue
+            ];
+            
+            resultsElements.forEach(function(el) {
+                observer.observe(el, { 
+                    characterData: true, 
+                    childList: true, 
+                    subtree: true 
+                });
+            });
+            
+            // Add CSS for highlight animation
+            const style = document.createElement('style');
+            style.textContent = `
+                .highlight {
+                    animation: highlight 0.5s ease;
+                }
+                
+                @keyframes highlight {
+                    0% { background-color: transparent; }
+                    50% { background-color: rgba(253, 182, 20, 0.3); }
+                    100% { background-color: transparent; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

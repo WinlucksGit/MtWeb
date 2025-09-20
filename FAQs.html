@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Winlucks Merchant Partnership</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="icon" type="image/jpg" href="LW.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-img {
+            max-width: 250px;
+            height: auto;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #fdb614;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+            position: relative;
+        }
+        
+        .btn:hover {
+            background: #e6a410;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #60269e;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+            border-left: 5px solid #60269e;
+        }
+        
+        .card-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .search-container {
+            background: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            margin: 30px 0;
+        }
+        
+        .search-container input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-container button {
+            background: #60269e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-container button:hover {
+            background: #7d3cc4;
+        }
+        
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            background: #f9f7ff;
+            border: 2px solid #e6e1ff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: #60269e;
+            color: white;
+            border-color: #60269e;
+        }
+        
+        .category-btn i {
+            margin-right: 8px;
+        }
+        
+        .faq-container {
+            margin: 40px 0;
+        }
+        
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        
+        .faq-category-title {
+            color: #60269e;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-category-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: #60269e;
+            position: relative;
+        }
+        
+        .faq-question i {
+            margin-right: 15px;
+            color: #fdb614;
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #555;
+            display: none;
+        }
+        
+        .faq-active .faq-answer {
+            display: block;
+        }
+        
+        .faq-active .faq-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+            color: #7d3cc4;
+        }
+        
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .contact-option {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-option:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #7d3cc4;
+            margin-bottom: 15px;
+        }
+        
+        .contact-title {
+            font-size: 1.2rem;
+            color: #60269e;
+            margin-bottom: 10px;
+        }
+        
+        .contact-detail {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            color: #555;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .quick-link-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .quick-link-icon {
+            font-size: 2rem;
+            color: #7d3cc4;
+            margin-bottom: 15px;
+        }
+        
+        .quick-link-title {
+            font-size: 1.1rem;
+            color: #60269e;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: #60269e;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .categories-container {
+                flex-direction: column;
+            }
+            
+            .category-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .logo-img {
+                max-width: 200px;
+            }
+            
+            .contact-options, .quick-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Merchant Benefits
+        </a>
+
+        <header>
+           
+            <div class="tagline">Frequently Asked Questions</div>
+            <p>Find answers to common questions about Winlucks Merchant Partnership</p>
+           
+        </header>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-search"></i> Find Answers Quickly</h2>
+            <p>Search our FAQ database or browse by category to find the information you need:</p>
+            
+            <div class="search-container">
+                <input type="text" placeholder="What do you need help with?">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            
+            <div class="categories-container">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-star"></i> All Questions
+                </button>
+                <button class="category-btn" data-category="onboarding">
+                    <i class="fas fa-rocket"></i> Onboarding
+                </button>
+                <button class="category-btn" data-category="pricing">
+                    <i class="fas fa-dollar-sign"></i> Pricing & Fees
+                </button>
+                <button class="category-btn" data-category="payments">
+                    <i class="fas fa-credit-card"></i> Payments
+                </button>
+                <button class="category-btn" data-category="rewards">
+                    <i class="fas fa-gift"></i> Rewards System
+                </button>
+                <button class="category-btn" data-category="technical">
+                    <i class="fas fa-cogs"></i> Technical Support
+                </button>
+            </div>
+        </div>
+
+        <div class="card" id="faq">
+            <h2 class="card-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <p>Browse through commonly asked questions organized by category:</p>
+            
+            <div class="faq-container">
+                <!-- Onboarding Questions -->
+                <div class="faq-category" data-category="onboarding">
+                    <h3 class="faq-category-title"><i class="fas fa-rocket"></i> Onboarding & Account Setup</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                How long does it take to get started with Winlucks?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most merchants can get set up and start receiving orders within 24-48 hours. The process includes submitting your documents, account verification, store setup, and training on the merchant app.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                What documents do I need to become a Winlucks merchant?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You'll need to provide:
+                            <ul>
+                                <li>Trade license copy</li>
+                                <li>Emirates ID of owner/manager</li>
+                                <li>Bank account details for settlements</li>
+                                <li>VAT certificate (if applicable)</li>
+                            </ul>
+                            Our onboarding team will guide you through the specific requirements for your business type.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                Is there any setup fee to join Winlucks?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, there are no setup fees to join Winlucks. You can choose between our subscription plan (AED 199-599/month) or our postpaid plan with no monthly fee (limited time offer).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pricing & Fees Questions -->
+                <div class="faq-category" data-category="pricing">
+                    <h3 class="faq-category-title"><i class="fas fa-dollar-sign"></i> Pricing & Fees</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                What fees does Winlucks charge?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Winlucks charges:
+                            <ul>
+                                <li><strong>7% commission</strong> on orders (compared to 15-30% on other platforms)</li>
+                                <li><strong>3% service fee</strong> (minimum AED 1) for payment processing and platform maintenance</li>
+                                <li><strong>0% postpaid fee</strong> (limited time offer) or a monthly subscription fee depending on your plan</li>
+                            </ul>
+                            There are no hidden fees or unexpected charges.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                What's the difference between the subscription and postpaid plans?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>Subscription Plan (AED 199-599/month):</strong> Fixed monthly fee with all features included. Best for businesses with consistent monthly sales.<br><br>
+                            <strong>Postpaid Plan (AED 0/month):</strong> No monthly fee, just pay per transaction. Currently offering 0% postpaid fee for a limited time. Perfect for new businesses or those with fluctuating sales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                Are there any long-term contracts or commitments?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, Winlucks does not require long-term contracts. You can choose month-to-month billing and cancel anytime with 30 days notice. We believe in earning your business every month.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payments Questions -->
+                <div class="faq-category" data-category="payments">
+                    <h3 class="faq-category-title"><i class="fas fa-credit-card"></i> Payments & Settlements</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                How often will I receive payments from Winlucks?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Winlucks processes payments weekly. You'll receive your settlement every Tuesday for all orders completed in the previous week (Monday-Sunday). The funds are typically deposited directly to your bank account within 1-2 business days after processing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                What payment methods do customers use on Winlucks?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Winlucks supports multiple payment options:
+                            <ul>
+                                <li>Credit/Debit Cards</li>
+                                <li>Apple Pay & Google Pay</li>
+                                <li>Cash on Delivery</li>
+                                <li>Bank Transfers</li>
+                                <li>Winlucks Wallet</li>
+                            </ul>
+                            You receive the full order amount regardless of the payment method, minus our transparent fees.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                Are there any charges for payment processing?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Payment processing is included in our 3% service fee. There are no additional charges for payment processing, regardless of the payment method used by customers.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rewards System Questions -->
+                <div class="faq-category" data-category="rewards">
+                    <h3 class="faq-category-title"><i class="fas fa-gift"></i> Rewards System</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                How does the Winlucks reward coins system work?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The reward coins system incentivizes customers to shop with Winlucks merchants:
+                            <ul>
+                                <li>Customers earn coins with every purchase (typically 5-10% of order value)</li>
+                                <li>Coins can be redeemed for discounts on future orders</li>
+                                <li>You control the coin allocation percentage for your store</li>
+                                <li>Winlucks covers the cost of redeemed coins - it doesn't come from your revenue</li>
+                            </ul>
+                            This system increases customer loyalty and repeat business.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                Do I have to pay for the reward coins given to customers?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, Winlucks covers the cost of reward coins. When customers redeem coins at your store, you receive the full order value, and Winlucks absorbs the discount amount. This makes the rewards system completely free for merchants while driving more business to your store.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                Can I create custom reward promotions for my store?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Through your merchant dashboard, you can create special reward promotions such as:
+                            <ul>
+                                <li>Double coins events</li>
+                                <li>Bonus coins on specific products</li>
+                                <li>Limited-time reward boosts</li>
+                                <li>Special redemption events</li>
+                            </ul>
+                            These tools help you attract more customers and increase sales during specific periods.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technical Support Questions -->
+                <div class="faq-category" data-category="technical">
+                    <h3 class="faq-category-title"><i class="fas fa-cogs"></i> Technical Support</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                What support is available if I have technical issues?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Winlucks offers multiple support channels:
+                            <ul>
+                                <li><strong>Email:</strong> support@winlucks.com (response within 2 hours during business hours)</li>
+                                <li><strong>Phone:</strong> +971 58 98 50 10 2 (Sun-Thu, 8AM-6PM GST)</li>
+                                <li><strong>WhatsApp:</strong> +971 54 31 32 35 7 (quick responses)</li>
+                                <li><strong>In-app support:</strong> Direct messaging through the merchant app</li>
+                                <li><strong>Dedicated account manager:</strong> For larger merchants</li>
+                            </ul>
+                            Our average response time is under 30 minutes during business hours.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                Can I integrate Winlucks with my existing POS system?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, Winlucks offers API integration for popular POS systems. We currently integrate with:
+                            <ul>
+                                <li>Lightspeed</li>
+                                <li>Square</li>
+                                <li>Toast</li>
+                                <li>Zomato Base</li>
+                                <li>Talabat Portal</li>
+                                <li>And other common UAE POS systems</li>
+                            </ul>
+                            Contact our technical team to discuss integration options for your specific system.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div>
+                                <i class="fas fa-question"></i>
+                                Is there a mobile app for merchants?
+                            </div>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, Winlucks offers a full-featured merchant app available on:
+                            <ul>
+                                <li><strong>Google Play Store:</strong> <a href="https://play.google.com/store/apps/details?id=com.winlucks.merchant" target="_blank">Winlucks Business App</a></li>
+                                <li><strong>Apple App Store:</strong> <a href="https://apps.apple.com/in/app/winlucks-business/id6736730093" target="_blank">Winlucks Business App</a></li>
+                            </ul>
+                            The app allows you to manage orders, update inventory, view analytics, and communicate with customers from anywhere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-hands-helping"></i> Still Need Help?</h2>
+            <p>Can't find the answer you're looking for? Contact our support team directly:</p>
+            
+            <div class="contact-options">
+                <div class="contact-option">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3 class="contact-title">Email Support</h3>
+                    <p class="contact-detail">support@winlucks.com</p>
+                    <p>Response within 2 hours</p>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <h3 class="contact-title">Phone Support</h3>
+                    <p class="contact-detail">+971 58 98 50 10 2</p>
+                    <p>Sun-Thu, 8AM-6PM GST</p>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3 class="contact-title">WhatsApp Support</h3>
+                    <p class="contact-detail">+971 54 31 32 35 7</p>
+                    <p>Quick responses</p>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon"><i class="fas fa-comments"></i></div>
+                    <h3 class="contact-title">Live Chat</h3>
+                    <p class="contact-detail">Available in merchant app</p>
+                    <p>24/7 automated support</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-link"></i> Helpful Resources</h2>
+            <p>Explore these additional resources to learn more about Winlucks:</p>
+            
+            <div class="quick-links">
+                <div class="quick-link-card">
+                    <div class="quick-link-icon"><i class="fas fa-book"></i></div>
+                    <h3 class="quick-link-title">Merchant Guide</h3>
+                    <p>Complete guide to getting the most from Winlucks</p>
+                    <a href="merchant-resources.html" class="btn" style="padding: 8px 15px; margin-top: 10px; font-size: 0.9rem;">View Guide</a>
+                </div>
+                
+                <div class="quick-link-card">
+                    <div class="quick-link-icon"><i class="fas fa-video"></i></div>
+                    <h3 class="quick-link-title">Video Tutorials</h3>
+                    <p>Step-by-step video guides for all features</p>
+                    <a href="merchant-resources.html#videos" class="btn" style="padding: 8px 15px; margin-top: 10px; font-size: 0.9rem;">Watch Videos</a>
+                </div>
+                
+                <div class="quick-link-card">
+                    <div class="quick-link-icon"><i class="fas fa-calculator"></i></div>
+                    <h3 class="quick-link-title">Pricing Calculator</h3>
+                    <p>See how much you can save with Winlucks</p>
+                    <a href="pricing-calculator.html" class="btn" style="padding: 8px 15px; margin-top: 10px; font-size: 0.9rem;">Calculate Savings</a>
+                </div>
+                
+                <div class="quick-link-card">
+                    <div class="quick-link-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="quick-link-title">Webinars</h3>
+                    <p>Join live training sessions</p>
+                    <a href="#" class="btn" style="padding: 8px 15px; margin-top: 10px; font-size: 0.9rem;">View Schedule</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Winlucks. All rights reserved.</p>
+            <p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+            <p>Designed for businesses in the UAE to grow and succeed.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('faq-active');
+                });
+            });
+
+            // Category filter functionality
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const faqCategories = document.querySelectorAll('.faq-category');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    if (category === 'all') {
+                        // Show all FAQs
+                        faqCategories.forEach(cat => {
+                            cat.style.display = 'block';
+                        });
+                        document.querySelectorAll('.faq-item').forEach(item => {
+                            item.style.display = 'block';
+                        });
+                    } else {
+                        // Hide all categories first
+                        faqCategories.forEach(cat => {
+                            cat.style.display = 'none';
+                        });
+                        
+                        // Show selected category
+                        const selectedCategory = document.querySelector(`.faq-category[data-category="${category}"]`);
+                        if (selectedCategory) {
+                            selectedCategory.style.display = 'block';
+                        }
+                    }
+                });
+            });
+
+            // Simple search functionality
+            const searchInput = document.querySelector('.search-container input');
+            const searchButton = document.querySelector('.search-container button');
+            
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                if (searchTerm) {
+                    // Hide all FAQs first
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.style.display = 'none';
+                    });
+                    
+                    // Show categories that might have matches
+                    faqCategories.forEach(cat => {
+                        cat.style.display = 'block';
+                    });
+                    
+                    // Show questions that match the search term
+                    document.querySelectorAll('.faq-question').forEach(question => {
+                        const questionText = question.textContent.toLowerCase();
+                        if (questionText.includes(searchTerm)) {
+                            question.parentElement.style.display = 'block';
+                        }
+                    });
+                    
+                    // Highlight the search term in results
+                    const highlight = document.createElement('style');
+                    highlight.textContent = `
+                        .faq-question:contains(${searchTerm}) {
+                            background-color: rgba(253, 182, 20, 0.2);
+                        }
+                    `;
+                    document.head.appendChild(highlight);
+                } else {
+                    // If search is empty, show all FAQs
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                    faqCategories.forEach(cat => {
+                        cat.style.display = 'block';
+                    });
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchButton.click();
+                }
+            });
+
+            // Add animation to FAQ items when they open
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (mutation.target.classList.contains('faq-active')) {
+                            mutation.target.style.transform = 'translateY(-3px)';
+                            mutation.target.style.boxShadow = '0 5px 15px rgba(96, 38, 158, 0.2)';
+                        } else {
+                            mutation.target.style.transform = '';
+                            mutation.target.style.boxShadow = '';
+                        }
+                    }
+                });
+            });
+            
+            // Observe FAQ items for changes
+            document.querySelectorAll('.faq-item').forEach(item => {
+                observer.observe(item, { 
+                    attributes: true, 
+                    attributeFilter: ['class'] 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
