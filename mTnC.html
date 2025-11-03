@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Terms and Conditions - Winlucks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%);
+            transform: rotate(30deg);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fdb614;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+            border-left: 5px solid #60269e;
+        }
+
+        .card-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section h2 {
+            color: #60269e;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .policy-section h2 i {
+            margin-right: 10px;
+            color: #fdb614;
+            background: #60269e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .policy-section h3 {
+            color: #7d3cc4;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .policy-section p {
+            margin-bottom: 1rem;
+        }
+
+        .policy-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .policy-section li:before {
+            content: "•";
+            color: #fdb614;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff6e6 0%, #ffeacc 100%);
+            padding: 1.5rem;
+            border-left: 4px solid #fdb614;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight strong {
+            color: #60269e;
+        }
+
+        .toc {
+            background: linear-gradient(135deg, #f0ebff 0%, #e6e1ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #7d3cc4;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+        }
+
+        .toc h3 {
+            color: #60269e;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .toc h3 i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            margin-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+            padding-left: 0;
+        }
+
+        .toc li:before {
+            display: none;
+        }
+
+        .toc a {
+            color: #7d3cc4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .toc a:hover {
+            color: #60269e;
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(96, 38, 158, 0.1);
+        }
+
+        .toc a i {
+            margin-right: 10px;
+            color: #fdb614;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: #60269e;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #fdb614;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fdb614;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top:hover {
+            background: #e6a410;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+        }
+
+        .merchant-badge {
+            display: inline-block;
+            background: #fdb614;
+            color: #60269e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 0.8rem;
+        }
+
+        .qr-section {
+            background: linear-gradient(135deg, #f0ebff 0%, #e6e1ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #fdb614;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+        }
+
+        .qr-section h2 {
+            color: #60269e;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .qr-section h2 i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .policy-section h3 {
+                font-size: 1.1rem;
+            }
+            
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.7rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">Winlucks</div>
+            </div>
+            <h1 class="page-title">Merchant Terms and Conditions <span class="merchant-badge">For Business Partners</span></h1>
+            <p class="page-subtitle">Last updated: [Current Date]</p>
+        </header>
+
+        <div class="toc">
+            <h3><i class="fas fa-list"></i> Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction"><i class="fas fa-chevron-right"></i> 1. Introduction</a></li>
+                <li><a href="#registration"><i class="fas fa-chevron-right"></i> 2. Merchant Registration</a></li>
+                <li><a href="#use-of-platform"><i class="fas fa-chevron-right"></i> 3. Use of the Platform</a></li>
+                <li><a href="#responsibilities"><i class="fas fa-chevron-right"></i> 4. Merchant Responsibilities</a></li>
+                <li><a href="#subscription-payment"><i class="fas fa-chevron-right"></i> 5. Subscription and Payment</a></li>
+                <li><a href="#data-protection"><i class="fas fa-chevron-right"></i> 6. Data Protection and Privacy</a></li>
+                <li><a href="#prohibited"><i class="fas fa-chevron-right"></i> 7. Prohibited Activities</a></li>
+                <li><a href="#suspension"><i class="fas fa-chevron-right"></i> 8. Account Suspension and Termination</a></li>
+                <li><a href="#liability"><i class="fas fa-chevron-right"></i> 9. Liability and Indemnification</a></li>
+                <li><a href="#intellectual"><i class="fas fa-chevron-right"></i> 10. Intellectual Property</a></li>
+                <li><a href="#governing-law"><i class="fas fa-chevron-right"></i> 11. Governing Law and Dispute Resolution</a></li>
+                <li><a href="#miscellaneous"><i class="fas fa-chevron-right"></i> 12. Miscellaneous</a></li>
+                <li><a href="#contact"><i class="fas fa-chevron-right"></i> 13. Contact Information</a></li>
+                <li><a href="#qr-code"><i class="fas fa-chevron-right"></i> QR Code & Branding Materials</a></li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="policy-content">
+                <div class="policy-section" id="introduction">
+                    <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+                    <p>Welcome to the Winlucks Merchant App (the "Platform"). These Terms and Conditions govern your use of the Platform, operated by Winlucks LLC-FZ ("Winlucks," "we," "us," or "our"). By accessing or using the Platform, you agree to comply with and be bound by these terms. If you do not agree, you must cease using the Platform immediately.</p>
+                    <p>Winlucks reserves the right to modify these terms at any time. Updated terms will be effective upon posting, and continued use of the Platform constitutes acceptance of such changes.</p>
+                </div>
+                
+                <div class="policy-section" id="registration">
+                    <h2><i class="fas fa-user-plus"></i> 2. Merchant Registration and Account Requirements</h2>
+                    <ul>
+                        <li>Merchants must provide accurate and complete registration details, including a valid business license and contact information.</li>
+                        <li>Merchants are required to submit Know Your Customer (KYC) documentation upon registration and periodically as requested by Winlucks.</li>
+                        <li>Merchants must ensure all information in their profile, such as business hours, product descriptions, and contact details, remains current and accurate.</li>
+                        <li>Only individuals aged 18 or older can register and operate a Merchant account on the Platform.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="use-of-platform">
+                    <h2><i class="fas fa-store"></i> 3. Use of the Platform</h2>
+                    <ul>
+                        <li>Merchants must use the Platform solely for lawful business activities and in compliance with all applicable laws and regulations.</li>
+                        <li>Merchants are prohibited from engaging in activities that harm the reputation or functionality of the Platform, including but not limited to fraudulent transactions, data breaches, or unauthorized access.</li>
+                        <li>Merchants may not share confidential customer data or Platform information with unauthorized parties.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="responsibilities">
+                    <h2><i class="fas fa-tasks"></i> 4. Merchant Responsibilities</h2>
+                    
+                    <h3>4.1 Quality Assurance</h3>
+                    <p>Merchants are fully responsible for the quality, safety, and compliance of their products and services. All offerings must:</p>
+                    <ul>
+                        <li>Align with descriptions provided on the Platform.</li>
+                        <li>Meet local and international quality and safety standards.</li>
+                        <li>Be free from defects or hazards.</li>
+                    </ul>
+                    
+                    <h3>4.2 Honoring Commitments</h3>
+                    <p>Merchants must honor all promotional offers, discounts, prizes, and giveaways promised through the Platform. Failure to fulfill commitments may result in penalties, including account suspension or termination.</p>
+                    
+                    <h3>4.3 Customer Service</h3>
+                    <p>Merchants must provide clear channels for customer communication and respond promptly to inquiries, complaints, and disputes. Merchants must handle complaints professionally to ensure customer satisfaction and maintain the integrity of the Platform.</p>
+                    
+                    <h3>4.4 Compliance with Laws</h3>
+                    <p>Merchants are responsible for complying with all applicable laws, including consumer protection, data privacy, and tax regulations. Non-compliance may lead to account suspension or legal action.</p>
+                    
+                    <h3>4.5 Order Cancellation and Refunds</h3>
+                    <ul>
+                        <li>Merchants must define clear cancellation and refund policies for their products or services. These policies must comply with applicable laws and be clearly communicated to customers on the Platform.</li>
+                        <li>In the event of order cancellations initiated by the Merchant, the Merchant must notify the customer promptly and offer a suitable resolution, such as a full refund or replacement.</li>
+                        <li>Refunds for cancellations caused by the Merchant will be processed through the Platform's payment gateway, subject to standard processing times.</li>
+                    </ul>
+                    
+                    <h3>4.6 Handling Disputes</h3>
+                    <ul>
+                        <li>Merchants are required to resolve disputes with customers amicably. Persistent disputes or unresolved complaints may lead to penalties, including account suspension.</li>
+                        <li>Winlucks reserves the right to mediate disputes between Merchants and customers if deemed necessary.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="subscription-payment">
+                    <h2><i class="fas fa-money-bill-wave"></i> 5. Subscription and Payment Terms</h2>
+                    
+                    <h3>5.1 Subscription Plans</h3>
+                    <p>Merchants must select a subscription plan that suits their operational needs. Subscription fees and commission rates are outlined during registration and may be updated periodically.</p>
+                    
+                    <h3>5.2 Sales Commission and Payouts</h3>
+                    <ul>
+                        <li>Winlucks deducts a commission from each sale processed through the Platform. Commission rates vary by subscription plan.</li>
+                        <li>The commission is deducted at the point of transaction, and only the remaining balance is transferred to the Merchant during the monthly payout process.</li>
+                        <li>Merchants will receive detailed monthly statements summarizing the total sales, commissions deducted, and the net payout.</li>
+                        <li>Merchants may request expedited payouts, referred to as "Advance Settlements," subject to an additional settlement charge.</li>
+                    </ul>
+                    
+                    <h3>5.3 Taxes</h3>
+                    <p>Merchants are solely responsible for reporting and remitting applicable taxes to local authorities. Winlucks will provide transaction summaries to assist with tax compliance.</p>
+                </div>
+                
+                <div class="policy-section" id="data-protection">
+                    <h2><i class="fas fa-shield-alt"></i> 6. Data Protection and Privacy</h2>
+                    <ul>
+                        <li>Merchants must protect customer data obtained via the Platform and use it solely for order fulfillment and customer service purposes.</li>
+                        <li>Sharing customer data with unauthorized parties is strictly prohibited and will result in account suspension or termination.</li>
+                        <li>Merchants must comply with applicable data protection laws, including those in the UAE.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="prohibited">
+                    <h2><i class="fas fa-ban"></i> 7. Prohibited Activities</h2>
+                    <p>Merchants are prohibited from:</p>
+                    <ul>
+                        <li>Misrepresenting products or services.</li>
+                        <li>Engaging in fraudulent transactions or activities.</li>
+                        <li>Using the Platform for illegal purposes.</li>
+                        <li>Manipulating the Platform's features for unfair advantage.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="suspension">
+                    <h2><i class="fas fa-user-slash"></i> 8. Account Suspension and Termination</h2>
+                    
+                    <h3>8.1 Suspension by Winlucks</h3>
+                    <p>Winlucks reserves the right to suspend or terminate Merchant accounts for:</p>
+                    <ul>
+                        <li>Violations of these terms.</li>
+                        <li>Fraudulent activity or customer complaints.</li>
+                        <li>Non-compliance with legal or regulatory requirements.</li>
+                    </ul>
+                    
+                    <h3>8.2 Termination by Merchant</h3>
+                    <p>Merchants may terminate their accounts by providing written notice. Any outstanding fees or obligations must be settled before account closure.</p>
+                </div>
+                
+                <div class="policy-section" id="liability">
+                    <h2><i class="fas fa-balance-scale"></i> 9. Liability and Indemnification</h2>
+                    
+                    <h3>9.1 Merchant Liability</h3>
+                    <p>Merchants assume full responsibility for their products, services, and interactions with customers. Merchants must:</p>
+                    <ul>
+                        <li>Resolve disputes and complaints directly with customers.</li>
+                        <li>Maintain appropriate insurance coverage to address potential liabilities.</li>
+                    </ul>
+                    
+                    <h3>9.2 Indemnification</h3>
+                    <p>Merchants agree to indemnify and hold harmless Winlucks from claims, damages, or losses arising from:</p>
+                    <ul>
+                        <li>Merchant products or services.</li>
+                        <li>Breaches of these terms.</li>
+                        <li>Violations of applicable laws or regulations.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="intellectual">
+                    <h2><i class="fas fa-copyright"></i> 10. Intellectual Property</h2>
+                    <ul>
+                        <li>Merchants may not use Winlucks trademarks, logos, or branding without prior written consent.</li>
+                        <li>All content provided by Merchants must be original or properly licensed. Merchants grant Winlucks a royalty-free license to use their content for promotional purposes.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="governing-law">
+                    <h2><i class="fas fa-gavel"></i> 11. Governing Law and Dispute Resolution</h2>
+                    <p>These Terms and Conditions are governed by the laws of the United Arab Emirates. Disputes will be resolved under the jurisdiction of UAE courts, with arbitration conducted under the rules of the Dubai International Arbitration Centre (DIAC).</p>
+                </div>
+                
+                <div class="policy-section" id="miscellaneous">
+                    <h2><i class="fas fa-ellipsis-h"></i> 12. Miscellaneous</h2>
+                    
+                    <h3>12.1 Changes to Services</h3>
+                    <p>Winlucks may modify Platform features, fees, or functionality without prior notice to Merchants.</p>
+                    
+                    <h3>12.2 Force Majeure</h3>
+                    <p>Winlucks is not liable for delays or failures caused by circumstances beyond its control, including natural disasters or regulatory actions.</p>
+                    
+                    <h3>12.3 Record-Keeping</h3>
+                    <p>Merchants must retain transaction records for at least two years and provide access to these records upon request for auditing purposes.</p>
+                </div>
+                
+                <div class="policy-section" id="contact">
+                    <h2><i class="fas fa-envelope"></i> 13. Contact Information</h2>
+                    <p>For support, contact Winlucks customer service via email at <a href="mailto:support@winlucks.com" style="color: #60269e;">support@winlucks.com</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="qr-section" id="qr-code">
+            <h2><i class="fas fa-qrcode"></i> Winlucks QR Code Stickers and Branding Materials Placement & Usage</h2>
+            
+            <div class="policy-section">
+                <h3>1. Acceptance of Terms</h3>
+                <p>By clicking "Agree" during registration, the Merchant acknowledges and accepts these Terms & Conditions, including the Merchant Consent Agreement for QR code sticker placement.</p>
+                
+                <h3>2. Purpose</h3>
+                <p>The Merchant agrees to allow Winlucks to place Winlucks QR code stickers and branding materials within its premises to promote the Winlucks mobile application and customer engagement programs.</p>
+                
+                <h3>3. Placement & Usage</h3>
+                <ul>
+                    <li>Winlucks may place QR code stickers and brand materials (e.g., logos, small promotional signage) inside the Merchant's shop in locations mutually agreed upon.</li>
+                    <li>The content of the stickers shall be limited to branding elements such as "Scan, Win, Celebrate" and shall not contain explicit advertising or promotional offers unless otherwise approved by the Merchant.</li>
+                    <li>Winlucks shall ensure that the placement of these materials does not interfere with the Merchant's business operations or violate any local regulations.</li>
+                </ul>
+                
+                <h3>4. Compliance & Approval</h3>
+                <ul>
+                    <li>The Merchant acknowledges that any external display of branding materials (outside shop premises, windows, or public areas) may require approval from local authorities, such as the Department of Economic Development (DED) or Municipality.</li>
+                    <li>Winlucks agrees to comply with all applicable advertising and commercial regulations in the UAE and modify materials if required by local authorities.</li>
+                </ul>
+                
+                <h3>5. No Liability</h3>
+                <p>The Merchant is not responsible for any customer disputes, liabilities, or claims arising from the use of Winlucks QR codes or app-based promotions.</p>
+                
+                <h3>6. Termination</h3>
+                <p>This Agreement shall remain in effect unless terminated by either party with a [7/14] days written notice. Upon termination, Winlucks/ Merchant shall promptly remove all branding materials from the Merchant's premises if Winlucks not removed then merchant can remove.</p>
+                
+                <h3>7. General Provisions</h3>
+                <ul>
+                    <li>This Agreement does not create any financial obligation or partnership between the parties. The Merchant is not obligated to promote or endorse Winlucks beyond allowing sticker placement.</li>
+                    <li>Any modifications to this Agreement Winlucks should notify merchant by in app notification.</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h3>Agreement Confirmation</h3>
+                    <p>By clicking "Agree", the Merchant confirms acceptance of these Terms & Conditions, including the Merchant Consent Agreement for QR code sticker placement and promotional branding.</p>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="https://mt.winlucks.com/"><i class="fas fa-home"></i> Home</a>
+                <a href="privacy-policy.html"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+                <a href="merchant-privacy-policy.html"><i class="fas fa-store"></i> Merchant Privacy Policy</a>
+                <a href="terms-conditions.html"><i class="fas fa-file-contract"></i> Customer Terms</a>
+                <a href="#"><i class="fas fa-phone"></i> Contact Us</a>
+            </div>
+            <p>&copy; 2025 Winlucks. All rights reserved.</p>
+            <p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button visibility
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedItems = document.querySelectorAll('.policy-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
