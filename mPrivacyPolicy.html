@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Privacy Policy - Winlucks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #e6e1ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #60269e 0%, #7d3cc4 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 38, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%);
+            transform: rotate(30deg);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fdb614;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(96, 38, 158, 0.15);
+            border-left: 5px solid #60269e;
+        }
+
+        .card-title {
+            color: #60269e;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdb614;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section h2 {
+            color: #60269e;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .policy-section h2 i {
+            margin-right: 10px;
+            color: #fdb614;
+            background: #60269e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .policy-section h3 {
+            color: #7d3cc4;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .policy-section p {
+            margin-bottom: 1rem;
+        }
+
+        .policy-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .policy-section li:before {
+            content: "•";
+            color: #fdb614;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff6e6 0%, #ffeacc 100%);
+            padding: 1.5rem;
+            border-left: 4px solid #fdb614;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight strong {
+            color: #60269e;
+        }
+
+        .toc {
+            background: linear-gradient(135deg, #f0ebff 0%, #e6e1ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #7d3cc4;
+            box-shadow: 0 5px 15px rgba(96, 38, 158, 0.1);
+        }
+
+        .toc h3 {
+            color: #60269e;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .toc h3 i {
+            margin-right: 10px;
+            color: #fdb614;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            margin-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+            padding-left: 0;
+        }
+
+        .toc li:before {
+            display: none;
+        }
+
+        .toc a {
+            color: #7d3cc4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .toc a:hover {
+            color: #60269e;
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(96, 38, 158, 0.1);
+        }
+
+        .toc a i {
+            margin-right: 10px;
+            color: #fdb614;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: #60269e;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #fdb614;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fdb614;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(253, 182, 20, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top:hover {
+            background: #e6a410;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 182, 20, 0.6);
+        }
+
+        .merchant-badge {
+            display: inline-block;
+            background: #fdb614;
+            color: #60269e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .policy-section h3 {
+                font-size: 1.1rem;
+            }
+            
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.7rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">Winlucks</div>
+            </div>
+            <h1 class="page-title">Merchant Privacy Policy <span class="merchant-badge">For Business Partners</span></h1>
+            <p class="page-subtitle">Last updated: [Current Date]</p>
+        </header>
+
+        <div class="toc">
+            <h3><i class="fas fa-list"></i> Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction"><i class="fas fa-chevron-right"></i> 1. Introduction</a></li>
+                <li><a href="#information-we-collect"><i class="fas fa-chevron-right"></i> 2. Information We Collect</a></li>
+                <li><a href="#how-we-use-your-information"><i class="fas fa-chevron-right"></i> 3. How We Use Your Information</a></li>
+                <li><a href="#data-sharing"><i class="fas fa-chevron-right"></i> 4. Data Sharing and Disclosure</a></li>
+                <li><a href="#data-retention"><i class="fas fa-chevron-right"></i> 5. Data Retention</a></li>
+                <li><a href="#data-security"><i class="fas fa-chevron-right"></i> 6. Data Security</a></li>
+                <li><a href="#your-rights"><i class="fas fa-chevron-right"></i> 7. Your Rights</a></li>
+                <li><a href="#cookies"><i class="fas fa-chevron-right"></i> 8. Cookies and Tracking Technologies</a></li>
+                <li><a href="#changes"><i class="fas fa-chevron-right"></i> 9. Changes to This Privacy Policy</a></li>
+                <li><a href="#governing-law"><i class="fas fa-chevron-right"></i> 10. Governing Law and Dispute Resolution</a></li>
+                <li><a href="#contact"><i class="fas fa-chevron-right"></i> 11. Contact Information</a></li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="policy-content">
+                <div class="policy-section" id="introduction">
+                    <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+                    <p>This Privacy Policy explains how Winlucks LLC-FZ ("Winlucks," "we," "us," or "our") collects, uses, and safeguards the personal and business information of merchants ("you" or "Merchant") while using the Winlucks Merchant App (the "Platform"). By accessing or using the Platform, you consent to the practices described in this Privacy Policy.</p>
+                    <p>Winlucks is committed to compliance with applicable data protection laws in the UAE.</p>
+                </div>
+                
+                <div class="policy-section" id="information-we-collect">
+                    <h2><i class="fas fa-database"></i> 2. Information We Collect</h2>
+                    
+                    <h3>2.1 Information Provided by You</h3>
+                    <ul>
+                        <li><strong>Account Registration:</strong> Business name, license details, contact information, and Know Your Customer (KYC) documents.</li>
+                        <li><strong>Transaction Information:</strong> Details related to sales, payouts, and refunds.</li>
+                        <li><strong>Support Requests:</strong> Any information provided when contacting customer support.</li>
+                    </ul>
+                    
+                    <h3>2.2 Information Collected Automatically</h3>
+                    <ul>
+                        <li><strong>Device Information:</strong> IP address, device type, operating system, and browser type.</li>
+                        <li><strong>Platform Activity:</strong> Usage patterns, login history, and pages visited.</li>
+                    </ul>
+                    
+                    <h3>2.3 Third-Party Information</h3>
+                    <ul>
+                        <li>Payment processors may share transaction details for order validation and payouts.</li>
+                        <li>Analytics providers may share anonymized usage data to help improve Platform functionality.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="how-we-use-your-information">
+                    <h2><i class="fas fa-cogs"></i> 3. How We Use Your Information</h2>
+                    
+                    <h3>3.1 Operational Use</h3>
+                    <ul>
+                        <li>To create and manage your merchant account.</li>
+                        <li>To process transactions, deduct commissions, and issue payouts.</li>
+                    </ul>
+                    
+                    <h3>3.2 Communication</h3>
+                    <ul>
+                        <li>To notify you of changes to Platform policies, terms, or features.</li>
+                        <li>To provide updates about Platform performance and promotional opportunities.</li>
+                    </ul>
+                    
+                    <h3>3.3 Compliance and Security</h3>
+                    <ul>
+                        <li>To comply with legal obligations, such as financial reporting and tax compliance.</li>
+                        <li>To detect, prevent, and mitigate fraudulent activities.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="data-sharing">
+                    <h2><i class="fas fa-share-alt"></i> 4. Data Sharing and Disclosure</h2>
+                    
+                    <h3>4.1 Service Providers</h3>
+                    <p>We may share your information with third-party service providers who assist in payment processing, cloud storage, and analytics.</p>
+                    
+                    <h3>4.2 Customers</h3>
+                    <p>Limited information, such as your business name, contact details, and product offerings, may be displayed to customers using the Platform.</p>
+                    
+                    <h3>4.3 Legal Obligations</h3>
+                    <p>We may disclose your information if required by law, court order, or other legal processes.</p>
+                    
+                    <h3>4.4 Business Transfers</h3>
+                    <p>In the event of a merger, acquisition, or sale of assets, your data may be transferred as part of the transaction.</p>
+                </div>
+                
+                <div class="policy-section" id="data-retention">
+                    <h2><i class="fas fa-archive"></i> 5. Data Retention</h2>
+                    <p>We retain your data for as long as necessary to fulfill the purposes outlined in this Privacy Policy or to comply with legal, regulatory, and tax obligations. Upon account termination, data will be securely deleted or anonymized unless retention is required by law.</p>
+                </div>
+                
+                <div class="policy-section" id="data-security">
+                    <h2><i class="fas fa-shield-alt"></i> 6. Data Security</h2>
+                    <p>Winlucks implements security measures, including:</p>
+                    <ul>
+                        <li>Encryption of sensitive information like passwords.</li>
+                        <li>Firewalls and secure servers.</li>
+                        <li>Regular audits and system updates.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section" id="your-rights">
+                    <h2><i class="fas fa-user-check"></i> 7. Your Rights</h2>
+                    <p>You have the right to:</p>
+                    <ul>
+                        <li><strong>Access:</strong> Request a copy of your data.</li>
+                        <li><strong>Correction:</strong> Request updates to inaccurate or incomplete data.</li>
+                        <li><strong>Deletion:</strong> Request data deletion, subject to legal obligations.</li>
+                        <li><strong>Restriction:</strong> Limit how your data is processed.</li>
+                        <li><strong>Portability:</strong> Obtain your data in a portable format.</li>
+                    </ul>
+                    <p>For assistance, contact <a href="mailto:privacy@winlucks.com" style="color: #60269e;">privacy@winlucks.com</a>.</p>
+                </div>
+                
+                <div class="policy-section" id="cookies">
+                    <h2><i class="fas fa-cookie-bite"></i> 8. Cookies and Tracking Technologies</h2>
+                    <p>The Platform uses cookies to enhance your experience and analyse usage. You can manage cookie preferences through your browser settings.</p>
+                </div>
+                
+                <div class="policy-section" id="changes">
+                    <h2><i class="fas fa-sync-alt"></i> 9. Changes to This Privacy Policy</h2>
+                    <p>We may update this Privacy Policy periodically. Significant changes will be communicated via email or in-app notifications.</p>
+                </div>
+                
+                <div class="policy-section" id="governing-law">
+                    <h2><i class="fas fa-balance-scale"></i> 10. Governing Law and Dispute Resolution</h2>
+                    <p>This Privacy Policy is governed by the laws of the United Arab Emirates. Disputes will be resolved through arbitration under the rules of the Dubai International Arbitration Centre (DIAC).</p>
+                </div>
+                
+                <div class="policy-section" id="contact">
+                    <h2><i class="fas fa-envelope"></i> 11. Contact Information</h2>
+                    <p>For questions about this Privacy Policy, contact us at <a href="mailto:privacy@winlucks.com" style="color: #60269e;">privacy@winlucks.com</a>.</p>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="https://mt.winlucks.com/"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                <a href="#"><i class="fas fa-phone"></i> Contact Us</a>
+                <a href="privacy-policy.html"><i class="fas fa-user-shield"></i> Customer Privacy Policy</a>
+            </div>
+            <p>&copy; 2025 Winlucks. All rights reserved.</p>
+            <p>WINLUCKS L.L.C-FZ | Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button visibility
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedItems = document.querySelectorAll('.policy-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
